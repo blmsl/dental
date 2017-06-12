@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  postal_code: MyString
+  street: MyString
+  address_number: MyString
+  complement: MyString
+  neighborhood: MyString
+  addressable_id: 1
+  addressable_type: MyString
+
+two:
+  postal_code: MyString
+  street: MyString
+  address_number: MyString
+  complement: MyString
+  neighborhood: MyString
+  addressable_id: 1
+  addressable_type: MyString
