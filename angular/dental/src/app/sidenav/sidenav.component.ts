@@ -1,3 +1,5 @@
+import { MenuItem } from './../menu/shared/MenuItem';
+import { MenuService } from './../menu/menu.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
-  constructor() { }
+  listaMenu:Array<MenuItem>;
+  constructor(private _menuService:MenuService) { }
 
   ngOnInit() {
+    this.listaMenu = this._menuService.getMenuList();
   }
 
 }

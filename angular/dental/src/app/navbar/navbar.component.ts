@@ -1,4 +1,4 @@
-import { MenuService } from './../menu/menu.service';
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,11 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  private listaMenu:Array<any>;
-  constructor(private _menuService:MenuService) { }
-
+  
   ngOnInit() {
-    this.listaMenu = this._menuService.getMenuList();
   }
 
 }

@@ -1,3 +1,12 @@
 .side-nav{
     margin-top: 65px;
+    width:200px;
+}
+
+.side-nav li > a > i {
+    width : 0px;
+}
+
+.side-nav li > a {
+    padding: 5px;
 }

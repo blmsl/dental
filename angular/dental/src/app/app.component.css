@@ -1,5 +1,14 @@
 @media only screen and (min-width: 992px){
     .main{
-        padding-left: 310px;
+        padding-left: 205px;
+    }
+    .show-on-med-and-down{
+        display:none;
+    }
+}
+
+@media only handheld{
+    .show-on-med-and-down{
+        display:block;
     }
 }
