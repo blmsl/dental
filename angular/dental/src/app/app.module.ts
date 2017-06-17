@@ -1,3 +1,4 @@
+import { LayoutComponentsModule } from './layout-components/layout-components.module';
 import { MenuService } from './menu/menu.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -6,20 +7,19 @@ import { HttpModule } from '@angular/http';
 import { MaterializeModule } from 'angular2-materialize';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
+import { NavbarComponent } from './layout-components/navbar/navbar.component';
+import { SidenavComponent } from './layout-components/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavbarComponent,
-    SidenavComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
     ,MaterializeModule
+    ,LayoutComponentsModule
   ],
   providers: [MenuService],
   bootstrap: [AppComponent]

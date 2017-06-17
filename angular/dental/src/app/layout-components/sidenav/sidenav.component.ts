@@ -1,5 +1,5 @@
-import { MenuItem } from './../menu/shared/MenuItem';
-import { MenuService } from './../menu/menu.service';
+import { MenuItem } from '../../menu/shared/MenuItem';
+import { MenuService } from '../../menu/menu.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
