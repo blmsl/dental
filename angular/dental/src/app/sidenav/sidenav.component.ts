@@ -9,11 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
-  listaMenu:Array<MenuItem>;
+  menuList:Array<MenuItem>;
   constructor(private _menuService:MenuService) { }
 
   ngOnInit() {
-    this.listaMenu = this._menuService.getMenuList();
+    this.menuList = this._menuService.getMenuList();
+    console.log(this.menuList);
   }
 
 }

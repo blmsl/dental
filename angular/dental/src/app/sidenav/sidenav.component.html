@@ -1,12 +1,19 @@
-<ul id="slide-out" class="side-nav fixed">
+<ul id="slide-out" class="side-nav fixed"  materialize="collapsible" data-collapsible="accordion">
+  <li *ngFor="let lMenu of menuList" >
 
-    <li *ngFor="let lMenu of listaMenu" >
-      <a href="#!">
-        <i class="material-icons">{{lMenu.iconPath}}</i>
-        {{lMenu.label}}
-      </a>
-    </li>
-    
-  </ul>
+    <a href = "#!" [class.collapsible-header]="lMenu.subMenuList?.length > 0">
+      <i class="material-icons">{{lMenu.iconPath}}</i>
+      {{lMenu.label}}
+    </a>
 
-        
+    <div class="collapsible-body" style="display: block;">
+      <div *ngIf="lMenu.subMenuList?.length > 0">      
+        <ul>
+          <li *ngFor="let lSubMenu of lMenu.subMenuList"class = "grey lighten-2">
+            <a href = "{{lSubMenu.url}}"><i class="material-icons">{{lSubMenu.iconPath}}</i>{{lSubMenu.label}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </li>
+</ul>        
