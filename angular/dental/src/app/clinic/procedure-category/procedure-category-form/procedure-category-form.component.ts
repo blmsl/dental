@@ -1,3 +1,6 @@
+import { ProcedureCategoryService } from './../shared/procedure-category.service';
+import { ProcedureCategory } from './../shared/procedure-category';
+import { RouterModule,Router,ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProcedureCategoryFormComponent implements OnInit {
 
-  constructor() { }
+  procedureCategory:ProcedureCategory = new ProcedureCategory();
+
+  constructor(
+    private route:ActivatedRoute
+    ,private service:ProcedureCategoryService
+  ) { }
 
   ngOnInit() {
+   
   }
+ 
 
 }
