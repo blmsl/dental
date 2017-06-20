@@ -1,3 +1,5 @@
+import { ProcedureCategory } from './shared/procedure-category';
+import { ProcedureCategoryService } from './shared/procedure-category.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProcedureCategoryComponent implements OnInit {
 
-  constructor() { }
+  procedureCategories:Array<ProcedureCategory> = [];
+  constructor(private _service:ProcedureCategoryService) { }
 
   ngOnInit() {
+    this._service.getAll()
+      .subscribe(data => this.procedureCategories = data);
+  }
+
+  delete(ProcedureCategory){
+
   }
 
 }

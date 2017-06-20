@@ -1,4 +1,4 @@
-import { Global } from './../../global/global';
+import { Global } from './../../../global/global';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -9,7 +9,7 @@ import { Observable } from 'rxjs/Rx';
 @Injectable()
 export class ProcedureCategoryService {
 
-  private apiUrl = Global.apiURL+"procedure-categories";
+  private apiUrl = Global.apiURL()+"procedure_categories";
 
   constructor(private _http:Http) { }
 

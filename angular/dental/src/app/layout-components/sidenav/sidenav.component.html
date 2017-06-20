@@ -10,7 +10,8 @@
       <div *ngIf="lMenu.subMenuList?.length > 0">      
         <ul>
           <li *ngFor="let lSubMenu of lMenu.subMenuList"class = "grey lighten-2">
-            <a href = "{{lSubMenu.url}}"><i class="material-icons">{{lSubMenu.iconPath}}</i>{{lSubMenu.label}}</a>
+            <a [routerLink] = "['procedure-categories']"> <i class="material-icons">{{lSubMenu.iconPath}}</i>{{lSubMenu.label}}</a>
+
           </li>
         </ul>
       </div>

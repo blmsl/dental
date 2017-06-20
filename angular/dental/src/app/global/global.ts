@@ -1,7 +1,7 @@
 export class Global{
 
     static apiURL(){
-        return 'localhost:3000\\';
+        return 'http://localhost:3000/';
     }
     
 }
