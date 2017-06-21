@@ -18,7 +18,21 @@ export class ProcedureCategoryFormComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-   
+    var id = this.route.params.subscribe(params => {
+      var id = params['id'];
+      if (!id)
+        return; 
+      this.service.get(id)
+        .subscribe(
+          data => this.procedureCategory = data,
+          response => {});
+    });
+  }
+
+  salvar(){
+    this.service.create(this.procedureCategory).subscribe(
+      null
+    );
   }
  
 
