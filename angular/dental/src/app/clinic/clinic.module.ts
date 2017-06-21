@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ProcedureCategoryService } from './procedure-category/shared/procedure-category.service';
 import { NgModule } from '@angular/core';
@@ -9,6 +10,7 @@ import { ProcedureCategoryFormComponent } from './procedure-category/procedure-c
   imports: [
     CommonModule
     ,RouterModule
+    ,FormsModule
   ],
   providers :[
     ProcedureCategoryService
