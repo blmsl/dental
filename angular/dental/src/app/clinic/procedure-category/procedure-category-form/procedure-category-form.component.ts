@@ -2,7 +2,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { ProcedureCategoryService } from './../shared/procedure-category.service';
 import { ProcedureCategory } from './../shared/procedure-category';
 import { RouterModule,Router,ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-procedure-category-form',
@@ -14,19 +14,19 @@ export class ProcedureCategoryFormComponent implements OnInit {
   procedureCategory:ProcedureCategory = new ProcedureCategory();
 
   constructor(
-    private route:ActivatedRoute
-    ,private router:Router
-    ,private service:ProcedureCategoryService
+    private _route:ActivatedRoute
+    ,private _router:Router
+    ,private _service:ProcedureCategoryService
     ,private _flashMessagesService: FlashMessagesService
   ) { }
 
   ngOnInit() {
-    var id = this.route.params.subscribe(params => {
+    var id = this._route.params.subscribe(params => {
       var id = params['id'];
       this.title =!id?'Creating':'Editing';
       if (!id)
         return; 
-      this.service.get(id)
+      this._service.get(id)
         .subscribe(
           data => this.procedureCategory = data,
           response => {});
@@ -36,14 +36,13 @@ export class ProcedureCategoryFormComponent implements OnInit {
   salvar(){
     let lServiceResult;
     if (this.procedureCategory.id)
-      lServiceResult = this.service.update(this.procedureCategory);
+      lServiceResult = this._service.update(this.procedureCategory);
     else
-      lServiceResult = this.service.create(this.procedureCategory);
+      lServiceResult = this._service.create(this.procedureCategory);
     
     lServiceResult.subscribe(res => {
-      console.log(this._flashMessagesService);
-      this._flashMessagesService.show('Procedure Category successfully Created!', { cssClass: 'alert-success', timeout: 2000 })
-      this.router.navigate(['/procedure-categories'])
+      this._flashMessagesService.show('Procedure Category successfully Created!', { cssClass: 'alert-success', timeout: 1000 })
+      this._router.navigate(['/procedure-categories'])
     });
 
   }

@@ -27,6 +27,7 @@ import { SidenavComponent } from './layout-components/sidenav/sidenav.component'
     ,ClinicModule
     ,routing
     ,FlashMessagesModule
+    
   ],
   providers: [MenuService],
   bootstrap: [AppComponent]

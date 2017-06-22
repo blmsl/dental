@@ -30,9 +30,7 @@ export class ProcedureCategoryComponent implements OnInit {
         res => {
           var index = this.procedureCategories.indexOf(pProcedureCategory);    
           this.procedureCategories.splice(index, 1);
-          this._flashMessagesService.show('Record successfully deleted!', { cssClass: 'alert-success', timeout: 2000 })
-          console.log(this._flashMessagesService);
-          console.log("fdsfsdfsdf");
+          this._flashMessagesService.show('Record successfully deleted!', { cssClass: 'alert-success', timeout: 1000 })
         }
       )
     }
