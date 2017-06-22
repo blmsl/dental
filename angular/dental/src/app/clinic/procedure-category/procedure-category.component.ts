@@ -1,6 +1,5 @@
 import { FlashMessagesService } from 'angular2-flash-messages';
 
-
 import { ProcedureCategory } from './shared/procedure-category';
 import { ProcedureCategoryService } from './shared/procedure-category.service';
 import { Component, OnInit } from '@angular/core';
@@ -25,14 +24,12 @@ export class ProcedureCategoryComponent implements OnInit {
   }
 
   delete(pProcedureCategory){
-    if(confirm('Do you realy want to delete this record?')){
-      this._service.delete(pProcedureCategory.id).subscribe(
-        res => {
-          var index = this.procedureCategories.indexOf(pProcedureCategory);    
-          this.procedureCategories.splice(index, 1);
-          this._flashMessagesService.show('Record successfully deleted!', { cssClass: 'alert-success', timeout: 1000 })
-        }
-      )
-    }
+    this._service.delete(pProcedureCategory.id).subscribe(
+      res => {
+        var index = this.procedureCategories.indexOf(pProcedureCategory);    
+        this.procedureCategories.splice(index, 1);
+        this._flashMessagesService.show('Record successfully deleted!', { cssClass: 'alert-success', timeout: 1000 })
+      }
+    )   
   }
 }

@@ -1,6 +1,7 @@
 import { AutoFocusDirective } from './auto-focus.directive';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ConfirmDialogDirective } from './confirm-dialog.directive';
 
 
 @NgModule({
@@ -8,10 +9,12 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ],
   declarations: [
-    AutoFocusDirective
+    AutoFocusDirective,
+    ConfirmDialogDirective
   ],
   exports:[
     AutoFocusDirective
+    ,ConfirmDialogDirective
   ]
 
 })
