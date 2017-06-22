@@ -33,7 +33,7 @@ export class ProcedureCategoryService {
       .map(res => res.json());
   }
 
-  deleteProcedureCategory(id){
+  delete(id){
     return this._http.delete(this.apiUrl + '/' + id)
       .map(res => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));

@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterializeModule } from 'angular2-materialize';
 import { routing } from './app.routing';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './layout-components/navbar/navbar.component';
@@ -25,6 +26,7 @@ import { SidenavComponent } from './layout-components/sidenav/sidenav.component'
     ,LayoutComponentsModule
     ,ClinicModule
     ,routing
+    ,FlashMessagesModule
   ],
   providers: [MenuService],
   bootstrap: [AppComponent]

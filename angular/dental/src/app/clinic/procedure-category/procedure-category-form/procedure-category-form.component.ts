@@ -1,3 +1,4 @@
+import { FlashMessagesService } from 'angular2-flash-messages';
 import { ProcedureCategoryService } from './../shared/procedure-category.service';
 import { ProcedureCategory } from './../shared/procedure-category';
 import { RouterModule,Router,ActivatedRoute } from '@angular/router';
@@ -16,6 +17,7 @@ export class ProcedureCategoryFormComponent implements OnInit {
     private route:ActivatedRoute
     ,private router:Router
     ,private service:ProcedureCategoryService
+    ,private _flashMessagesService: FlashMessagesService
   ) { }
 
   ngOnInit() {
@@ -32,10 +34,18 @@ export class ProcedureCategoryFormComponent implements OnInit {
   }
 
   salvar(){
+    let lServiceResult;
     if (this.procedureCategory.id)
-      this.service.update(this.procedureCategory).subscribe(res => this.router.navigate(['/procedure-categories']));
+      lServiceResult = this.service.update(this.procedureCategory);
     else
-      this.service.create(this.procedureCategory).subscribe(res => this.router.navigate(['/procedure-categories']));
+      lServiceResult = this.service.create(this.procedureCategory);
+    
+    lServiceResult.subscribe(res => {
+      console.log(this._flashMessagesService);
+      this._flashMessagesService.show('Procedure Category successfully Created!', { cssClass: 'alert-success', timeout: 2000 })
+      this.router.navigate(['/procedure-categories'])
+    });
+
   }
 
 }
