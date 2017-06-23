@@ -1,7 +1,12 @@
 <ul id="slide-out" class="side-nav fixed"  materialize="collapsible" [materializeParams]="[sideNavOptions]" data-collapsible="accordion">
   <li *ngFor="let lMenu of menuList" >
 
-    <a href = "#!" [class.collapsible-header]="lMenu.subMenuList?.length > 0">
+    <a *ngIf="!lMenu.subMenuList" [href] ="lMenu.url" >
+      <i class="material-icons">{{lMenu.iconPath}}</i>
+      {{lMenu.label}}
+    </a>
+
+    <a *ngIf="lMenu.subMenuList?.length > 0" [class.collapsible-header]="lMenu.subMenuList?.length > 0">
       <i class="material-icons">{{lMenu.iconPath}}</i>
       {{lMenu.label}}
     </a>
@@ -10,7 +15,7 @@
       <div *ngIf="lMenu.subMenuList?.length > 0">      
         <ul>
           <li *ngFor="let lSubMenu of lMenu.subMenuList"class = "grey lighten-2">
-            <a [routerLink] = "['procedure-categories']"> <i class="material-icons">{{lSubMenu.iconPath}}</i>{{lSubMenu.label}}</a>
+            <a [routerLink] = "[lSubMenu.url]"> <i class="material-icons">{{lSubMenu.iconPath}}</i>{{lSubMenu.label}}</a>
 
           </li>
         </ul>

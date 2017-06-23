@@ -1,15 +1,12 @@
+import { Observable } from 'rxjs/Rx';
+import { Http } from '@angular/http';
 import { Global } from './../../../global/global';
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/catch';
-import { Observable } from 'rxjs/Rx';
 
 @Injectable()
-export class ProcedureCategoryService {
+export class ProcedureService {
 
-  private apiUrl = Global.apiURL()+"procedure_categories";
+  private apiUrl = Global.apiURL()+"procedures";
 
   constructor(private _http:Http) { }
 
@@ -23,13 +20,13 @@ export class ProcedureCategoryService {
       .map(res => res.json());
   }
 
-  create(procedureCategory){
-    return this._http.post(this.apiUrl, {'procedure_category': procedureCategory})
+  create(pProcedure){
+    return this._http.post(this.apiUrl, {'procedure': pProcedure})
       .map(res => res.json());
   }
 
-  update(procedureCategory){
-    return this._http.put(this.apiUrl + '/' + procedureCategory.id, {'procedure_category': procedureCategory})
+  update(pProcedure){
+    return this._http.put(this.apiUrl + '/' + pProcedure.id, {'procedure': pProcedure})
       .map(res => res.json());
   }
 
