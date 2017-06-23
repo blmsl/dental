@@ -39,15 +39,3 @@
     border-color: #ebccd1;
 }
 
-.error-message {
-    color : red;
-    position: relative;
-    padding: 0;
-    margin-bottom: 10px;
-    margin-top: -20px;
-    left: 0;
-    font-size: 0.8rem;
-    cursor: text;
-    
-    text-align: initial;
-}

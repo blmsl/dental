@@ -1,3 +1,4 @@
+import { UtilsModule } from './../utils/utils.module';
 import { MaterializeModule } from 'angular2-materialize';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -20,6 +21,7 @@ import { ProcedureFormComponent } from './procedure/procedure-form/procedure-for
     ,ReactiveFormsModule
     ,DirectivesModule
     ,MaterializeModule
+    ,UtilsModule
   ],
   providers :[
     ProcedureCategoryService

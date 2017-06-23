@@ -20,7 +20,6 @@ export class SidenavComponent implements OnInit {
 
   ngOnInit() {
     this.menuList = this._menuService.getMenuList();
-    console.log(this.menuList);
   }
 
 }

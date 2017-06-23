@@ -1,3 +1,4 @@
+import { UtilsModule } from './utils/utils.module';
 import { PatientModule } from './patient/patient.module';
 import { ClinicModule } from './clinic/clinic.module';
 import { ProcedureCategoryService } from './clinic/procedure-category/shared/procedure-category.service';
@@ -27,6 +28,7 @@ import { SidenavComponent } from './layout-components/sidenav/sidenav.component'
     ,LayoutComponentsModule
     ,ClinicModule
     ,PatientModule
+    ,UtilsModule
     ,routing
     ,FlashMessagesModule
     

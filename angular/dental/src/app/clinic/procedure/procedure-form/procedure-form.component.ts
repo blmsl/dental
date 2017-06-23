@@ -18,6 +18,7 @@ export class ProcedureFormComponent implements OnInit {
   procedure:Procedure = new Procedure();
   procedureCategories:Array<ProcedureCategory> = [];
   procedureFormGroup:FormGroup;
+  errorMessages = ["Erro 1","Erro 2","Erro 3","Erro 4"];
 
   constructor(
     private _route:ActivatedRoute
@@ -29,6 +30,7 @@ export class ProcedureFormComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    
     this.procedureFormGroup = this._formBuilder.group({
       description:[null, Validators.required]
       ,procedure_category_id:[null, Validators.required]
