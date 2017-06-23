@@ -65,4 +65,11 @@ export class ProcedureFormComponent implements OnInit {
 
   }
 
+  mostrarErroCampo(nomeCampo):boolean{
+    let lCampo = this.procedureFormGroup.get(nomeCampo);
+    //return lCampo.errors['required'] && lCampo.touched;
+    return true;
+    
+  }
+
 }

@@ -7,9 +7,13 @@
           <span class="card-title">{{title}}</span>  
           
           <div class="row">
-            <div class="">
-              <label for="description">Description</label>
-              <input type="text" id="description" required [(ngModel)]="procedure.description" formControlName='description' appAutoFocus >
+            <div class="input-field s12">
+              <input class = "invalid"  type="email" id="description" [(ngModel)]="procedure.description" formControlName='description' appAutoFocus autofocus >
+              <label class = "invalid teste red-text" for="description" >Description</label>
+              
+              
+              
+              
             </div>
           </div>
 
@@ -20,7 +24,7 @@
               <option *ngFor = "let pc of procedureCategories" value="{{pc.id}}">{{pc.description}}</option>
               
             </select>
-            <label>Procedure Category</label>
+            <label for="procedure_category_id" data-error="wrong" data-success="right" >Procedure Category</label>
             </div>
           </div>
 
