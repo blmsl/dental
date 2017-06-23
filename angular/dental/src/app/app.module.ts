@@ -22,7 +22,7 @@ import { SidenavComponent } from './layout-components/sidenav/sidenav.component'
     BrowserModule,
     FormsModule,
     HttpModule
-    ,MaterializeModule
+    
     ,LayoutComponentsModule
     ,ClinicModule
     ,routing

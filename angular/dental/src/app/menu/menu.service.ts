@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 export class MenuService {
 
   constructor() {
-    console.log("Iniciando MenuService");
+    
   }
 
   getMenuList():Array<MenuItem>{

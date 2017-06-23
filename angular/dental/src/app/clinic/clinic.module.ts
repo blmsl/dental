@@ -1,3 +1,4 @@
+import { MaterializeModule } from 'angular2-materialize';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -9,6 +10,7 @@ import { ProcedureService } from './procedure/shared/procedure.service';
 import { ProcedureCategoryComponent } from './procedure-category/procedure-category.component';
 import { ProcedureCategoryFormComponent } from './procedure-category/procedure-category-form/procedure-category-form.component';
 import { ProcedureComponent } from './procedure/procedure.component';
+import { ProcedureFormComponent } from './procedure/procedure-form/procedure-form/procedure-form.component';
 
 @NgModule({
   imports: [
@@ -17,11 +19,17 @@ import { ProcedureComponent } from './procedure/procedure.component';
     ,FormsModule
     ,ReactiveFormsModule
     ,DirectivesModule
+    ,MaterializeModule
   ],
   providers :[
     ProcedureCategoryService
     ,ProcedureService
   ],
-  declarations: [ProcedureCategoryComponent, ProcedureCategoryFormComponent, ProcedureComponent]
+  declarations: [
+    ProcedureCategoryComponent
+  , ProcedureCategoryFormComponent
+  , ProcedureComponent
+  , ProcedureFormComponent
+  ]
 })
 export class ClinicModule { }

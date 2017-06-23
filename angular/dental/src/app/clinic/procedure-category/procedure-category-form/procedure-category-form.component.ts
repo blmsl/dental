@@ -40,7 +40,7 @@ export class ProcedureCategoryFormComponent implements OnInit {
     });
   }
 
-  salvar(){
+  save(){
     console.log(this.procedureCategoryFormGroup.valid);
     let lServiceResult;
     if (this.procedureCategory.id)
