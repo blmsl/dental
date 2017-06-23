@@ -5,6 +5,7 @@ import { RouterModule,Router,ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 
+
 @Component({
   selector: 'app-procedure-category-form',
   templateUrl: './procedure-category-form.component.html',
@@ -41,7 +42,6 @@ export class ProcedureCategoryFormComponent implements OnInit {
   }
 
   save(){
-    console.log(this.procedureCategoryFormGroup.valid);
     let lServiceResult;
     if (this.procedureCategory.id)
       lServiceResult = this._service.update(this.procedureCategory);

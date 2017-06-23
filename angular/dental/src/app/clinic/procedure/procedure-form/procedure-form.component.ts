@@ -1,10 +1,10 @@
-import { ProcedureCategoryService } from './../../../procedure-category/shared/procedure-category.service';
-import { ProcedureCategory } from './../../../procedure-category/shared/procedure-category';
+import { ProcedureCategoryService } from './../../procedure-category/shared/procedure-category.service';
+import { ProcedureCategory } from './../../procedure-category/shared/procedure-category';
 import { FlashMessagesService } from 'angular2-flash-messages';
-import { ProcedureService } from './../../shared/procedure.service';
+import { ProcedureService } from './../shared/procedure.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Procedure } from './../../shared/procedure';
+import { Procedure } from './../shared/procedure';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col s12 m12 l6 ">
+    <div class="card">
+      <div class="card-content">
+        <h5>
+          Procedures Categories
+          <a  [routerLink] = "['/patient-groups','new']" class="right btn-floating btn-large waves-effect waves-light ">
+            <i class="material-icons">add</i>
+          </a>
+        </h5>  
+        <table class="table table-striped" cellspacing="0" cellpadding="0">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of patientGroups">
+              <td>{{ p.id }}</td>
+              <td>{{ p.description }}</td>
+              <td class="actions" >
+                <a  appConfirmDialog (click)="delete(p)"  class="right btn-floating btn-large waves-effect waves-light "><i class="material-icons red">delete</i></a>
+                <a  [routerLink] = "[p.id]"  class="right btn-floating btn-large waves-effect waves-light "><i class="material-icons">edit</i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>          
+      </div>
+    </div>
+  </div>
+</div>

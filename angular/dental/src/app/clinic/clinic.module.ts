@@ -10,7 +10,7 @@ import { ProcedureService } from './procedure/shared/procedure.service';
 import { ProcedureCategoryComponent } from './procedure-category/procedure-category.component';
 import { ProcedureCategoryFormComponent } from './procedure-category/procedure-category-form/procedure-category-form.component';
 import { ProcedureComponent } from './procedure/procedure.component';
-import { ProcedureFormComponent } from './procedure/procedure-form/procedure-form/procedure-form.component';
+import { ProcedureFormComponent } from './procedure/procedure-form/procedure-form.component';
 
 @NgModule({
   imports: [
