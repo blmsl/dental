@@ -16,17 +16,21 @@
               <th>ID</th>
               <th>Name</th>
               <th>Group</th>
+              <th>Address</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let p of patients">
               <td>{{ p.id }}</td>
               <td>{{ p.name }}</td>
-              <td>{{ p.patientGroup.description }}</td>
+              <td>{{ p.patient_group?.description }}</td>
+              <td>{{ p.address?.street }}</td>
+              <td>{{ p.address?.address_number }}</td>
               <td class="actions" >
                 <a  appConfirmDialog (click)="delete(p)"  class="right btn-floating btn-large waves-effect waves-light "><i class="material-icons red">delete</i></a>
                 <a  [routerLink] = "[p.id]"  class="right btn-floating btn-large waves-effect waves-light "><i class="material-icons">edit</i></a>
               </td>
+              
             </tr>
           </tbody>
         </table>          

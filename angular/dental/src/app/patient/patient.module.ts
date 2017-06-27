@@ -1,3 +1,5 @@
+import { MaterializeModule } from 'angular2-materialize';
+import { PatientRountingModule } from './patient.routing.module';
 
 import { UtilsModule } from './../utils/utils.module';
 import { DirectivesModule } from './../directives/directives.module';
@@ -20,10 +22,18 @@ import { PatientFormComponent } from './patient/patient-form/patient-form.compon
     ,RouterModule
     ,ReactiveFormsModule
     ,FormsModule
+    ,MaterializeModule
+    
     ,DirectivesModule
     ,UtilsModule
+    ,PatientRountingModule
   ],
-  declarations: [PatientGroupComponent, PatientGroupFormComponent, PatientComponent, PatientFormComponent],
+  declarations: [
+    PatientGroupComponent
+    , PatientGroupFormComponent
+    , PatientComponent
+    , PatientFormComponent
+  ],
   providers :[
     PatientGroupService
     ,PatientService

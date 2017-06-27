@@ -17,7 +17,12 @@ export class Patient{
     rg:string;
     observation:string;
 
-    patientGroup:PatientGroup;
+    patient_group:PatientGroup;
     address:Address;
+
+    constructor(){
+        this.patient_group = new PatientGroup();
+        this.address = new Address();
+    }
 
 }

@@ -38,6 +38,7 @@ export class ProcedureFormComponent implements OnInit {
 
 
     this._procedureCategoryService.getAll().subscribe(data => this.procedureCategories = data);
+    
     var id = this._route.params.subscribe(params => {
       var id = params['id'];
       this.title =!id?'Creating':'Editing';

@@ -25,7 +25,7 @@ export class ErrorMessageComponent implements OnInit {
     if (this.group == undefined) console.error('formGroup was not setted');
     if (this.controlName == undefined) console.error('controlName was not setted');
 
-    this.control = this.group.controls[this.controlName];
+    this.control = this.group.get(this.controlName);
     this.control.isInvalidControl = () =>{
       return !this.control.valid && (this.control.touched);
     }
@@ -47,6 +47,9 @@ export class ErrorMessageComponent implements OnInit {
 
         if (this.control.errors['minlength'])
           lErrorList.push("Min Length: "+this.control.errors['minlength']['requiredLength']);
+
+          if (this.control.errors['maxlength'])
+          lErrorList.push("Max Length: "+this.control.errors['maxlength']['requiredLength']);
 
         if (this.control.errors['email'])
           lErrorList.push("email");
