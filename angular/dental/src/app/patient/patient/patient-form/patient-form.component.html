@@ -1,7 +1,12 @@
+
+
 <div class="row">
   <div class="col s12 m12 l12 xl8">
     <div class="card">
       <form (ngSubmit)="save()" [formGroup] = "patientFormGroup">
+
+        
+                  
 
         <div class="card-content">
           <span class="card-title">{{title}}</span>  
@@ -32,25 +37,23 @@
                 <label for="patient_group_id" data-error="wrong" data-success="right" >Patient Group</label>
                   <app-error-message #emgroup [group] = "patientFormGroup" controlName = "patient_group_id" ></app-error-message>
               </div>
-            </div>
 
-            <div class="row">
-              <div class="input-field col inline s12 m2 l2"  >                
+              <div class="input-field s12 m2 l2"  >
                   <input value = "M" name="gender" type="radio" id="male" [(ngModel)]="patient.gender"  formControlName='gender' />
                   <label for="male">Male</label>
-                  <input value = "F" name="gender" type="radio" id="female" [(ngModel)]="patient.gender"  formControlName='gender'/>
+                  <input value = "F" name="gender" type="radio" id="female" [(ngModel)]="patient.gender"  formControlName='gender' />
                   <label for="female">Female</label>                
               </div>
             </div>
 
             <div class="row">
-              <div class="input-field col s12 m2 l2"  >
+              <div class="input-field col s12 m2 l2">
                 <input [class.invalid] = "emdate_of_birth.control.isInvalidControl()"  type="text" id="date_of_birth" [(ngModel)]="patient.date_of_birth" formControlName='date_of_birth' autofocus autocomplete="off" >
                 <label [class.red-text] = "emdate_of_birth.control.isInvalidControl()" for="date_of_birth" >Date Of Birth</label>
                 <app-error-message #emdate_of_birth [group] = "patientFormGroup" controlName = "date_of_birth" ></app-error-message>
               </div>
-
-              <div class="input-field col s12 m2 l2"  >
+              
+              <div class="input-field col s12 m6 l6"  >
                 <input [class.invalid] = "emlocation_of_birth.control.isInvalidControl()"  type="text" id="date_of_birth" [(ngModel)]="patient.location_of_birth" formControlName='location_of_birth' autofocus autocomplete="off" >
                 <label [class.red-text] = "emlocation_of_birth.control.isInvalidControl()" for="location_of_birth" >Location Of Birth</label>
                 <app-error-message #emlocation_of_birth [group] = "patientFormGroup" controlName = "location_of_birth" ></app-error-message>
