@@ -60,7 +60,7 @@ class PatientsController < ApplicationController
       params[:patient].delete(:contact);
       
 
-      params.require(:patient).permit(:name,:cpf, :photo,:gender,:date_of_birth,:location_of_birth,:observation,:patient_group_id,address_attributes: [:id, :street, :postal_code, :address_number, :complement, :neighborhood,:addressable_id,:addressable_type],contact_attributes: [:id,:email, :phone,:contactable_id,:contactable_type])
+      params.require(:patient).permit(:name,:cpf, :rg, :photo,:gender,:date_of_birth,:location_of_birth,:observation,:patient_group_id,address_attributes: [:id, :street, :postal_code, :address_number, :complement, :neighborhood,:addressable_id,:addressable_type],contact_attributes: [:id,:email, :phone,:contactable_id,:contactable_type])
       
       #print "jhon #{params[:patient][:address_attributes]}"
     end

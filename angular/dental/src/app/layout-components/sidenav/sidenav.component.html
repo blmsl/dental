@@ -1,7 +1,7 @@
 <ul id="slide-out" class="side-nav fixed"  materialize="collapsible" [materializeParams]="[sideNavOptions]" data-collapsible="accordion">
   <li *ngFor="let lMenu of menuList" >
 
-    <a *ngIf="!lMenu.subMenuList" [href] ="lMenu.url" >
+    <a *ngIf="!lMenu.subMenuList" [routerLink] = "[lMenu.url]" >
       <i class="material-icons">{{lMenu.iconPath}}</i>
       {{lMenu.label}}
     </a>

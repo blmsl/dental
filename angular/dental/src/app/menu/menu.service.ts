@@ -11,7 +11,8 @@ export class MenuService {
   getMenuList():Array<MenuItem>{
     let lListaMenu = [];
     let lSubMenuList = new Array<MenuItem>();
-    lListaMenu.push(new MenuItem("event","Schedule","",null));
+    
+    lListaMenu.push(new MenuItem("event","Schedule","schedule",null));
 
     lSubMenuList = new Array<MenuItem>();
     lSubMenuList.push(new MenuItem("","Patient","patients",null));
