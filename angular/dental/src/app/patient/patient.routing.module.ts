@@ -1,3 +1,4 @@
+import { PatientShowDetailComponent } from './patient/patient-show-detail/patient-show-detail.component';
 import { PatientFormComponent } from './patient/patient-form/patient-form.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -10,11 +11,13 @@ import { PatientComponent } from './patient/patient.component';
 const PATIENT_ROUTE: Routes = [
     {path:'patients',component: PatientComponent}
     ,{path:'patients/new',component: PatientFormComponent}
-    ,{path:'patients/:id',component: PatientFormComponent}
+    ,{path:'patients/:id',component: PatientShowDetailComponent}
+    ,{path:'patients/:id/edit',component: PatientFormComponent}
 
     ,{path:'patient-groups',component: PatientGroupComponent}
     ,{path:'patient-groups/new',component: PatientGroupFormComponent}
     ,{path:'patient-groups/:id',component: PatientGroupFormComponent}
+    
     
 ];
 @NgModule({

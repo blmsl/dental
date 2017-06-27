@@ -1,0 +1,122 @@
+<div class="row">
+  <div class="col s12 m12 l12 xl8">
+    <div class="card">
+      
+
+        
+                  
+
+        <div class="card-content">
+          <span class="card-title">Detail</span>  
+
+          
+
+            <div class="row">
+
+              <div class="input-field col s12 m2 l2"  >
+                <input type="text" id="cpf" [(ngModel)]="patient.cpf" autofocus readonly >
+                <label for="cpf" >CPF</label>
+              </div>
+              
+              <div class="input-field col s12 m6 l6"  >
+                <input type="text" id="name" [(ngModel)]="patient.name" readonly autofocus autocomplete="off" >
+                <label for="name" >name</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12 m6 l6"  >
+                <input type="text" id="patient_group" [(ngModel)]="patient.patient_group.description" autofocus autocomplete="off" >
+                <label for="name" >Patient Group</label>
+              </div>
+
+              <div class="input-field s12 m2 l2"  >
+                  <input value = "M" name="gender" type="radio" id="male" [(ngModel)]="patient.gender" readonly />
+                  <label for="male">Male</label>
+                  <input value = "F" name="gender" type="radio" id="female" [(ngModel)]="patient.gender" readonly />
+                  <label for="female">Female</label>                
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12 m2 l2">
+                <input type="text" id="date_of_birth" [(ngModel)]="patient.date_of_birth" readonly autofocus autocomplete="off" >
+                <label for="date_of_birth" >Date Of Birth</label>
+              </div>
+              
+              <div class="input-field col s12 m6 l6"  >
+                <input type="text" id="date_of_birth" [(ngModel)]="patient.location_of_birth" readonly autofocus autocomplete="off" >
+                <label for="location_of_birth" >Location Of Birth</label>
+              </div>
+
+              <div class="input-field col s12 m2 l2"  >
+                <input value = "married" name="material_status" type="radio" id="married" [(ngModel)]="patient.material_status" readonly />
+                <label for="married">Married</label>
+                <input value = "single" name="material_status" type="radio" id="single" [(ngModel)]="patient.material_status" readonly />
+                <label for="single">Single</label>
+              </div>
+
+              <div class="input-field col s12 m2 l2"  >
+                <input type="text" id="rg" [(ngModel)]="patient.rg" formControlName='rg' readonly autofocus autocomplete="off" >
+                <label for="rg" >RG</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12 m12 l12"  >
+                <textarea class = "materialize-textarea" type="text" id="observation" [(ngModel)]="patient.observation" readonly autofocus autocomplete="off" ></textarea>
+                <label for="observation" >Observation</label>
+              </div>    
+            </div>
+
+          </div>
+          <div class = "form-group" formGroupName = "address">
+            <div class="row">
+              
+              <div class="input-field col s12 m2 l2"  >
+                <input [class.invalid] = "empostal_code.control.isInvalidControl()" type="text" id="address.street" [(ngModel)]="patient.address.postal_code" formControlName='postal_code' autocomplete="off" autofocus >
+                <label [class.red-text] = "empostal_code.control.isInvalidControl()" for="postal_code" >Postal Code</label>
+                <app-error-message #empostal_code [group] = "patientFormGroup" controlName = "address.postal_code" ></app-error-message>
+              </div>
+
+              <div class="input-field col s12 m6 l6"  >
+                <input [class.invalid] = "emstreet.control.isInvalidControl()" type="text" id="address.street" [(ngModel)]="patient.address.street" formControlName='street' autocomplete="off" autofocus >
+                <label [class.red-text] = "emstreet.control.isInvalidControl()" for="street" >Street</label>
+                <app-error-message #emstreet [group] = "patientFormGroup" controlName = "address.street" ></app-error-message>
+              </div>
+
+              <div class="input-field col s12 m2 l2"  >
+                <input [class.invalid] = "emneighborhood.control.isInvalidControl()" type="text" id="address.street" [(ngModel)]="patient.address.neighborhood" formControlName='neighborhood' autocomplete="off" autofocus >
+                <label [class.red-text] = "emneighborhood.control.isInvalidControl()" for="neighborhood" >NeighborHood</label>
+                <app-error-message #emneighborhood [group] = "patientFormGroup" controlName = "address.neighborhood" ></app-error-message>
+              </div>
+
+              <div class="input-field col s12 m2 l2"  >
+                <input [class.invalid] = "emaddress_number.control.isInvalidControl()" type="text" id="address.street" [(ngModel)]="patient.address.address_number" formControlName='address_number' autocomplete="off" autofocus >
+                <label [class.red-text] = "emaddress_number.control.isInvalidControl()" for="number" >Number</label>
+                <app-error-message #emaddress_number [group] = "patientFormGroup" controlName = "address.address_number" ></app-error-message>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12 m6 l6"  >
+                <input type="text" id="address.street" [(ngModel)]="patient.address.complement" formControlName='complement' autocomplete="off" autofocus >
+                <label for="complement" >Complement</label>
+                
+              </div>
+
+            </div>
+          </div>
+          
+          
+
+        </div>
+
+        <div class="card-action">
+          <button [disabled]="!patientFormGroup.valid" class="btn waves-effect waves-light" type="submit" name="action" appConfirmDialog >Save
+            <i class="material-icons right">send</i>
+          </button>
+          <a routerLink="/patients" class = "right" >Back</a>
+        </div>
+      
+    </div>
+  </div>
