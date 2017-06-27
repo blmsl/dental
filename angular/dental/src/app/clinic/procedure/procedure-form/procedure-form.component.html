@@ -7,49 +7,32 @@
           <span class="card-title">{{title}}</span>  
           
           <div class="row">
-            <div class="input-field s12">
-              <input class = "invalid"  type="email" id="description" [(ngModel)]="procedure.description" formControlName='description' appAutoFocus autofocus >
-              <label class = "invalid teste red-text" for="description" >Description</label>
-              <app-error-message [messages] = "errorMessages" ></app-error-message>
+            <div class="input-field s12"  >
+              <input [class.invalid] = "emdescription.control.isInvalidControl()"  type="text" id="description" [(ngModel)]="procedure.description" formControlName='description' appAutoFocus autofocus autocomplete="off" >
+              <label [class.red-text] = "emdescription.control.isInvalidControl()" for="description" >Description</label>
+              <app-error-message #emdescription [group] = "procedureFormGroup" controlName = "description" ></app-error-message>
             </div>
-          </div>
-           
-          <div class="row">
-            <div class="input-field s12">
-              <input class = "invalid"  type="email" id="description" [(ngModel)]="procedure.description" formControlName='description' appAutoFocus autofocus >
-              <label class = "invalid teste red-text" for="description" >Description</label>
-              <app-error-message [messages] = "errorMessages" ></app-error-message>
-            </div>
-          </div>
-           
-          <div class="row">
-            <div class="input-field s12">
-              <input class = "invalid"  type="email" id="description" [(ngModel)]="procedure.description" formControlName='description' appAutoFocus autofocus >
-              <label class = "invalid teste red-text" for="description" >Description</label>
-              <app-error-message [messages] = "errorMessages" ></app-error-message>
-            </div>
-          </div>
-
+          </div>  
+          
           <div class="row">
             <div class="input-field">
             <select [(ngModel)]="procedure.procedure_category_id" materialize = "material_select" [materializeSelectOptions]="procedureCategories" formControlName = "procedure_category_id">
-              <option  value="" disabled selected>Choose a Procedure Category</option>
+              <option  value = "" disabled selected>Choose a Procedure Category</option>
               <option *ngFor = "let pc of procedureCategories" value="{{pc.id}}">{{pc.description}}</option>
-              
             </select>
             <label for="procedure_category_id" data-error="wrong" data-success="right" >Procedure Category</label>
+            <app-error-message #emcategory [group] = "procedureFormGroup" controlName = "procedure_category_id" ></app-error-message>
             </div>
           </div>
 
         </div>
 
         <div class="card-action">
-          <button class="btn waves-effect waves-light" type="submit" name="action" appConfirmDialog >Save
+          <button [disabled]="!procedureFormGroup.valid" class="btn waves-effect waves-light" type="submit" name="action" appConfirmDialog >Save
             <i class="material-icons right">send</i>
           </button>
           <a routerLink="/procedures" class = "right" >Back</a>
         </div>
-
       </form>
     </div>
   </div>

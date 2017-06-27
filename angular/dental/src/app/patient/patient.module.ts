@@ -1,3 +1,5 @@
+
+import { UtilsModule } from './../utils/utils.module';
 import { DirectivesModule } from './../directives/directives.module';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -8,6 +10,9 @@ import { CommonModule } from '@angular/common';
 import { PatientGroupService } from './patient-group/shared/patient-group.service';
 import { PatientGroupComponent } from './patient-group/patient-group.component';
 import { PatientGroupFormComponent } from './patient-group/patient-group-form/patient-group-form.component';
+import { PatientService } from './patient/shared/patient.service';
+import { PatientComponent } from './patient/patient.component';
+import { PatientFormComponent } from './patient/patient-form/patient-form.component';
 
 @NgModule({
   imports: [
@@ -16,10 +21,12 @@ import { PatientGroupFormComponent } from './patient-group/patient-group-form/pa
     ,ReactiveFormsModule
     ,FormsModule
     ,DirectivesModule
+    ,UtilsModule
   ],
-  declarations: [PatientGroupComponent, PatientGroupFormComponent],
+  declarations: [PatientGroupComponent, PatientGroupFormComponent, PatientComponent, PatientFormComponent],
   providers :[
     PatientGroupService
+    ,PatientService
   ],
   
 })

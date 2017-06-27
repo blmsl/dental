@@ -1,7 +1,8 @@
+import { RouterModule } from '@angular/router';
 import { UtilsModule } from './../utils/utils.module';
 import { MaterializeModule } from 'angular2-materialize';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -12,16 +13,17 @@ import { ProcedureCategoryComponent } from './procedure-category/procedure-categ
 import { ProcedureCategoryFormComponent } from './procedure-category/procedure-category-form/procedure-category-form.component';
 import { ProcedureComponent } from './procedure/procedure.component';
 import { ProcedureFormComponent } from './procedure/procedure-form/procedure-form.component';
+import { ClinicRountingModule } from './clinic.routing.module';
 
 @NgModule({
   imports: [
     CommonModule
-    ,RouterModule
     ,FormsModule
     ,ReactiveFormsModule
     ,DirectivesModule
     ,MaterializeModule
     ,UtilsModule
+    ,ClinicRountingModule
   ],
   providers :[
     ProcedureCategoryService
@@ -32,6 +34,7 @@ import { ProcedureFormComponent } from './procedure/procedure-form/procedure-for
   , ProcedureCategoryFormComponent
   , ProcedureComponent
   , ProcedureFormComponent
+  
   ]
 })
 export class ClinicModule { }

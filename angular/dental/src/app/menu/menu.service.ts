@@ -14,9 +14,10 @@ export class MenuService {
     lListaMenu.push(new MenuItem("event","Schedule","",null));
 
     lSubMenuList = new Array<MenuItem>();
+    lSubMenuList.push(new MenuItem("","Patient","patients",null));
     lSubMenuList.push(new MenuItem("","Patient-Groups","patient-groups",null));
-  
-    lListaMenu.push(new MenuItem("person","Patient","",lSubMenuList));
+    lListaMenu.push(new MenuItem("person","Patients","",lSubMenuList));
+    
     lListaMenu.push(new MenuItem("finance","Finance","",null));
     lListaMenu.push(new MenuItem("","Products","",null));
     lSubMenuList = new Array<MenuItem>();

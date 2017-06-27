@@ -18,7 +18,7 @@ export class ProcedureFormComponent implements OnInit {
   procedure:Procedure = new Procedure();
   procedureCategories:Array<ProcedureCategory> = [];
   procedureFormGroup:FormGroup;
-  errorMessages = ["Erro 1","Erro 2","Erro 3","Erro 4"];
+  
 
   constructor(
     private _route:ActivatedRoute
@@ -32,9 +32,10 @@ export class ProcedureFormComponent implements OnInit {
   ngOnInit() {
     
     this.procedureFormGroup = this._formBuilder.group({
-      description:[null, Validators.required]
+      description:[null, Validators.compose([Validators.required,Validators.minLength(5)])]
       ,procedure_category_id:[null, Validators.required]
     });
+
 
     this._procedureCategoryService.getAll().subscribe(data => this.procedureCategories = data);
     var id = this._route.params.subscribe(params => {
@@ -65,13 +66,6 @@ export class ProcedureFormComponent implements OnInit {
       this._flashMessagesService.show(err.statusText, { cssClass: 'alert-danger', timeout: 2000 })
     });
 
-  }
-
-  mostrarErroCampo(nomeCampo):boolean{
-    let lCampo = this.procedureFormGroup.get(nomeCampo);
-    //return lCampo.errors['required'] && lCampo.touched;
-    return true;
-    
   }
 
 }
