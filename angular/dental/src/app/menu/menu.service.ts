@@ -21,6 +21,11 @@ export class MenuService {
     
     lListaMenu.push(new MenuItem("finance","Finance","",null));
     lListaMenu.push(new MenuItem("","Products","",null));
+
+    lSubMenuList = new Array<MenuItem>();
+    lSubMenuList.push(new MenuItem("","Dentists","dentists",null));
+    lListaMenu.push(new MenuItem("team","Team","",lSubMenuList));
+
     lSubMenuList = new Array<MenuItem>();
     lSubMenuList.push(new MenuItem("","Procedures","procedures",null));
     lSubMenuList.push(new MenuItem("","Procedure Categories","procedure-categories",null));

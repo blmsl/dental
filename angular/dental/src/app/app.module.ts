@@ -1,3 +1,4 @@
+import { DentistModule } from './dentist/dentist.module';
 import { ScheduleModule } from './schedule/schedule.module';
 import { AppRoutingModule } from './app.routing.module';
 import { UtilsModule } from './utils/utils.module';
@@ -34,6 +35,7 @@ import { SidenavComponent } from './layout-components/sidenav/sidenav.component'
     ,LayoutComponentsModule
     ,ClinicModule
     ,PatientModule
+    ,DentistModule
     ,ScheduleModule
     ,UtilsModule
     ,FlashMessagesModule
