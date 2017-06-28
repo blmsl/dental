@@ -19,7 +19,7 @@ export class PatientShowDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    var id = this._route.params.subscribe(params => {
+    var id = this._route.parent.params.subscribe(params => {
       var id = params['id'];
       if (!id)
         return; 

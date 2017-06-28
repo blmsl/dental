@@ -16,6 +16,7 @@ import { PatientService } from './patient/shared/patient.service';
 import { PatientComponent } from './patient/patient.component';
 import { PatientFormComponent } from './patient/patient-form/patient-form.component';
 import { PatientShowDetailComponent } from './patient/patient-show-detail/patient-show-detail.component';
+import { PatientDashboardComponent } from './patient/patient-dashboard/patient-dashboard.component';
 
 @NgModule({
   imports: [
@@ -33,7 +34,7 @@ import { PatientShowDetailComponent } from './patient/patient-show-detail/patien
     PatientGroupComponent
     , PatientGroupFormComponent
     , PatientComponent
-    , PatientFormComponent, PatientShowDetailComponent
+    , PatientFormComponent, PatientShowDetailComponent, PatientDashboardComponent
   ],
   providers :[
     PatientGroupService

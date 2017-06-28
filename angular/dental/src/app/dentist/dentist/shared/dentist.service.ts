@@ -1,3 +1,4 @@
+import { Dentist } from './dentist';
 import { Observable } from 'rxjs/Rx';
 import { Http } from '@angular/http';
 import { Global } from './../../../global/global';
@@ -20,12 +21,12 @@ export class DentistService {
       .map(res => res.json());
   }
 
-  create(pDentist){
+  create(pDentist:Dentist){
     return this._http.post(this.apiUrl, {'dentist': pDentist})
       .map(res => res.json());
   }
 
-  update(pDentist){
+  update(pDentist:Dentist){
     return this._http.put(this.apiUrl + '/' + pDentist.id, {'dentist': pDentist})
       .map(res => res.json());
   }

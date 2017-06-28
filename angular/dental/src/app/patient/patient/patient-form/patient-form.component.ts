@@ -56,7 +56,7 @@ export class PatientFormComponent implements OnInit {
     
     this._patientGroupService.getAll().subscribe(data => this.patientGroups = data);
 
-    var id = this._route.params.subscribe(params => {
+    var id = this._route.parent.params.subscribe(params => {
       var id = params['id'];
       this.title =!id?'Creating':'Editing';
       if (!id)
@@ -77,7 +77,7 @@ export class PatientFormComponent implements OnInit {
     
     lServiceResult.subscribe(res => {      
       this._flashMessagesService.show('Patient successfully '+(this.patient.id?'Updated':'Created')+'!', { cssClass: 'alert-success', timeout: 2000 });
-      this._router.navigate(['/patients'])
+      this._router.navigate(['/patients',this.patient.id,'show-detail'])
     },
     (err) => {
       this._flashMessagesService.show(err.statusText, { cssClass: 'alert-danger', timeout: 2000 })
