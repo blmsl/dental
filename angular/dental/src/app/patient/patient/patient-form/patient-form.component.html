@@ -85,6 +85,28 @@
             </div>
 
           </div>
+
+          <div class = "form-group" formGroupName = "contact">
+            <div class="row">
+              
+              <div class="input-field col s12 m4 l4"  >
+                <input [class.invalid] = "ememail.control.isInvalidControl()" type="text" id="contact.email" [(ngModel)]="patient.contact.email" formControlName='email' autocomplete="off" autofocus >
+                <label [class.red-text] = "ememail.control.isInvalidControl()" for="email" >Email</label>
+                <app-error-message #ememail [group] = "patientFormGroup" controlName = "contact.email" ></app-error-message>
+              </div>
+
+              <div class="input-field col s12 m4 l4"  >
+                <input [class.invalid] = "emphone.control.isInvalidControl()" type="text" id="contact.phone" [(ngModel)]="patient.contact.phone" formControlName='phone' autocomplete="off" autofocus >
+                <label [class.red-text] = "emphone.control.isInvalidControl()" for="phone" >Phone</label>
+                <app-error-message #emphone [group] = "patientFormGroup" controlName = "contact.phone" ></app-error-message>
+              </div>
+
+         
+            </div>
+
+           
+          </div>
+
           <div class = "form-group" formGroupName = "address">
             <div class="row">
               

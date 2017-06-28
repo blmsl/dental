@@ -1,3 +1,4 @@
+import { Contact } from './../../../contact/contact';
 import { Address } from './address';
 import { PatientGroup } from './../../patient-group/shared/patient-group';
 
@@ -19,10 +20,12 @@ export class Patient{
 
     patient_group:PatientGroup;
     address:Address;
+    contact:Contact;
 
     constructor(){
         this.patient_group = new PatientGroup();
         this.address = new Address();
+        this.contact = new Contact();
     }
 
 }

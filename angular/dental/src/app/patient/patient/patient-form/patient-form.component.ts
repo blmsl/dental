@@ -47,6 +47,11 @@ export class PatientFormComponent implements OnInit {
         ,complement:[null]
         ,postal_code:[null, Validators.compose([Validators.required,Validators.minLength(8),Validators.maxLength(8)])]
       })
+
+       ,contact:this._formBuilder.group({
+        email:[null, Validators.compose([Validators.required,Validators.email])]
+        ,phone:[null, Validators.required]      
+      })
     });
     
     this._patientGroupService.getAll().subscribe(data => this.patientGroups = data);
