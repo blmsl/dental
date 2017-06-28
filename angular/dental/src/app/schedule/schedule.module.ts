@@ -1,3 +1,4 @@
+import { ScheduleService } from './schedule/shared/schedule.service';
 import { MaterializeModule } from 'angular2-materialize';
 
 import { ScheduleRountingModule } from './schedule.routing.module';
@@ -21,6 +22,7 @@ import { ScheduleFormComponent } from './schedule/schedule-form/schedule-form.co
   declarations: [
     ScheduleComponent
     ,CalendarComponent, ScheduleFormComponent
-  ]
+  ],
+  providers:[ScheduleService]
 })
 export class ScheduleModule { }
