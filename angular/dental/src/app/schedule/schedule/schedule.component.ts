@@ -1,3 +1,4 @@
+import { ScheduleFormComponent } from './schedule-form/schedule-form.component';
 import { CalendarComponent } from 'ap-angular2-fullcalendar/src/calendar/calendar';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
@@ -9,11 +10,16 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 export class ScheduleComponent implements OnInit {
 
   @ViewChild(CalendarComponent) myCalendar: CalendarComponent;
+
+  @ViewChild('scheduleform') 
+  scheduleForm:ScheduleFormComponent;
+
   calendarOptions:any = {};
   
   constructor() { }
 
   ngOnInit() {
+    this.carregarCalendario();
     let events = [{
             id: 999,
             title: 'Repeating Event',
@@ -63,6 +69,8 @@ export class ScheduleComponent implements OnInit {
 
       events: []
       ,dayClick: function (date, jsEvent, view) {
+        //alert(date._d);
+        me.scheduleForm.openModal();
           // console.log('clicou no dia');
           //   const modalRef = me.modalService.open(ScheduleFormComponent);  
           //   modalRef.componentInstance.novo(date._d);
