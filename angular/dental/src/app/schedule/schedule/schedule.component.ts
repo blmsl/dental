@@ -89,7 +89,17 @@ export class ScheduleComponent implements OnInit {
           //       )
       }
       ,eventResize:function(event, delta, revertFunc) {
-          me.scheduleForm.openModal();
+        me._service.get(event.id)
+          .subscribe(res => {
+            let lSchedule = res;
+
+            // a diferenca   entre as datas é em milisegundos
+            // o tempo estimado(estimated_time) é em minutos
+            // sendo assim, para transformar os milisegundos em minutos
+            // é necessário dividir por 60.000
+            lSchedule.estimated_time = (event.end._d - event.start._d)/60000; 
+            me._service.update(lSchedule).subscribe(null);         
+        });
           // me.service.get(event.id)
           //   .subscribe(
           //     schedule => {
@@ -106,16 +116,12 @@ export class ScheduleComponent implements OnInit {
           //   );
       }
       ,eventDrop:function(event, delta, revertFunc) {
-        me.scheduleForm.openModal();
-          // me.service.get(event.id)
-          //   .subscribe(
-          //     schedule => {
-          //       console.log(schedule);
-          //       schedule.schedule_time = event.start._d;                
-          //       me.service.update(schedule)
-          //         .subscribe(null);  
-          //       console.log(schedule);
-          //     });
+        me._service.get(event.id)
+          .subscribe(res => {
+            let lSchedule = res;
+            lSchedule.schedule_time = event.start._d;      
+            me._service.update(lSchedule).subscribe(null);         
+        });
       }
       ,eventClick:function(event) {
           me.scheduleForm.editEvent(event.id);
