@@ -20,22 +20,17 @@ export class ScheduleComponent implements OnInit {
   constructor(private _service:ScheduleService) { }
 
   ngOnInit() {
-    this.carregarCalendario();
+    this.carregarCalendario(); 
+    this.searchEvents();
+  }
+
+  searchEvents(){
     this._service.getAll()
       .subscribe(data => {
-        let events = [{
-            id: 999,
-            title: 'Repeating Event',
-            start: '2017-06-28T16:00:00'
-    }];
-    console.log(events);
-    console.log(data);
-         this.calendarOptions.events = data;
-        this.myCalendar.fullCalendar('removeEvents');
-        this.myCalendar.fullCalendar('addEventSource', data);   
-      })
-    
-   
+          this.calendarOptions.events = data;
+          this.myCalendar.fullCalendar('removeEvents');
+          this.myCalendar.fullCalendar('addEventSource', data);   
+    });   
   }
 
   carregarCalendario(){
@@ -48,8 +43,8 @@ export class ScheduleComponent implements OnInit {
           day:      'Dia',
           list:     'lista'
       },
-      minTime: "00:00:00",
-      maxTime: "24:00:00",
+      minTime: "08:00:00",
+      maxTime: "18:00:00",
       businessHours: {
         // days of week. an array of zero-based day of week integers (0=Sunday)
         dow: [ 3, 4 ], // Monday - Thursday
@@ -140,6 +135,10 @@ export class ScheduleComponent implements OnInit {
 
       }
     }
+  }
+
+  onsave(event){
+    this.searchEvents();
   }
 
 }

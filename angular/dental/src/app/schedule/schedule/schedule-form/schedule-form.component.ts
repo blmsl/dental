@@ -1,6 +1,11 @@
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { DentistService } from './../../../dentist/dentist/shared/dentist.service';
+import { PatientService } from './../../../patient/patient/shared/patient.service';
+import { Dentist } from './../../../dentist/dentist/shared/dentist';
+import { Patient } from './../../../patient/patient/shared/patient';
 import { ScheduleService } from './../shared/schedule.service';
 import { Schedule } from './../shared/schedule';
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
   import {MaterializeAction} from 'angular2-materialize';
 
@@ -12,15 +17,38 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 export class ScheduleFormComponent implements OnInit {
 
   schedule:Schedule = new Schedule();
+  patients:Array<Patient> = [];
+  dentists:Array<Dentist> = [];
+  scheduleFormGroup:FormGroup;
   modalActions = new EventEmitter<string|MaterializeAction>();
 
-  constructor(private _service:ScheduleService) { }
+  @Output("onsave")
+  onSave:EventEmitter<string> = new EventEmitter<string>();
 
-  ngOnInit() {}
+  constructor(
+    private _service:ScheduleService
+    ,private _patientService:PatientService
+    ,private _dentistService:DentistService
+    ,private _formBuilder:FormBuilder
+  ) { }
+
+  ngOnInit() {
+    this.scheduleFormGroup = this._formBuilder.group({
+      patient_id:[null]
+      ,dentist_id:[null]
+      ,estimated_time:[null,Validators.required]
+      ,schedule_time:[null,Validators.required]
+      
+    });
+    this._patientService.getAll().subscribe(data => this.patients = data);
+    this._dentistService.getAll().subscribe(data => this.dentists = data);
+
+  }
 
   createEvent(pEventDate){
     this.schedule = new Schedule();  
     this.schedule.schedule_time = pEventDate;
+    this.schedule.estimated_time = 60;
     this.openModal();
   }
 
@@ -32,10 +60,10 @@ export class ScheduleFormComponent implements OnInit {
       });
   }
 
-  openModal() {
+  private openModal() {
     this.modalActions.emit({action:"modal",params:['open']});
   }
-
+    
   closeModal() {
     this.modalActions.emit({action:"modal",params:['close']});
   }
@@ -48,7 +76,11 @@ export class ScheduleFormComponent implements OnInit {
       lServiceResult = this._service.create(this.schedule);
     
     lServiceResult.subscribe(
-      res => this.closeModal()
+      res => {
+        this.closeModal();
+        if (this.onSave)
+          this.onSave.emit("Saved");
+      }
       ,err => alert(err));
   }
 }

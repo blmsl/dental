@@ -1,3 +1,6 @@
+import { DirectivesModule } from './../directives/directives.module';
+import { UtilsModule } from './../utils/utils.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ScheduleService } from './schedule/shared/schedule.service';
 import { MaterializeModule } from 'angular2-materialize';
 
@@ -17,7 +20,10 @@ import { ScheduleFormComponent } from './schedule/schedule-form/schedule-form.co
     CommonModule
     ,ScheduleRountingModule
     ,MaterializeModule
-    
+    ,FormsModule
+    ,ReactiveFormsModule
+    ,UtilsModule
+    ,DirectivesModule
   ],
   declarations: [
     ScheduleComponent
