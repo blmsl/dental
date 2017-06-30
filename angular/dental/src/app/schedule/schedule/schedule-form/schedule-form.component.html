@@ -1,5 +1,13 @@
 <!-- Modal Structure -->
 <div id="modal1" class="modal" materialize="modal" [materializeParams]="[{dismissible: true}]" [materializeActions]="modalActions">
+
+
+
+
+
+
+
+
   <form (ngSubmit)="save()" [formGroup] = "scheduleFormGroup">
     <div class="modal-content">
     
@@ -46,11 +54,12 @@
       </div>  
 
     </div>
-    <div class="modal-footer" >
+    <div class="modal-footer card-action" >
       <button class="left btn waves-effect waves-light" [disabled]="!scheduleFormGroup.valid" autofocus  type="submit" name="action" appConfirmDialog >Save
         <i class="material-icons right">send</i>
       </button>
-      <a (click)="closeModal()" class = "right" >Cancel</a>
+      <a (click)="closeModal()" class = "left btn waves-effect red modal-button " ><i class="material-icons right">delete</i>Remove</a>
+      <a (click)="closeModal()" class = "right  btn waves-effect " >Cancel</a>
     </div>
   </form>
 
