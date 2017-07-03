@@ -1,5 +1,5 @@
 class TreatmentsController < ApplicationController
-  before_action :set_patient, only: [:show, :update, :create,:index]
+  before_action :set_patient, only: [:show, :update, :create,:index,:destroy]
   before_action :set_treatment, only: [:show, :update, :destroy]
   
 

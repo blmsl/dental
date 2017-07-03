@@ -22,7 +22,7 @@ import { ScheduleFormComponent } from './schedule/schedule-form/schedule-form.co
     ,MaterializeModule
     ,FormsModule
     ,ReactiveFormsModule
-    ,UtilsModule
+    ,UtilsModule  
     ,DirectivesModule
   ],
   declarations: [

@@ -23,7 +23,10 @@ export class ScheduleFormComponent implements OnInit {
   modalActions = new EventEmitter<string|MaterializeAction>();
 
   @Output("onsave")
-  onSave:EventEmitter<string> = new EventEmitter<string>();
+  onSave:EventEmitter<Schedule> = new EventEmitter<Schedule>();
+
+  @Output("ondelete")
+  onDelete:EventEmitter<Schedule> = new EventEmitter<Schedule>();
 
   constructor(
     private _service:ScheduleService
@@ -37,12 +40,12 @@ export class ScheduleFormComponent implements OnInit {
       patient_id:[null]
       ,dentist_id:[null]
       ,estimated_time:[null,Validators.required]
-      ,schedule_time:[null,Validators.required]
+      //,schedule_time:[null,Validators.required]
       
     });
     this._patientService.getAll().subscribe(data => this.patients = data);
     this._dentistService.getAll().subscribe(data => this.dentists = data);
-
+    
   }
 
   createEvent(pEventDate){
@@ -79,8 +82,19 @@ export class ScheduleFormComponent implements OnInit {
       res => {
         this.closeModal();
         if (this.onSave)
-          this.onSave.emit("Saved");
+          this.onSave.emit(this.schedule);
       }
       ,err => alert(err));
+  }
+
+  deleteSchedule(){
+    this._service.delete(this.schedule.id)
+      .subscribe(
+        res => {
+          this.closeModal();
+          if (this.onDelete)
+            this.onDelete.emit(this.schedule);
+        }
+        ,err => alert(err));
   }
 }

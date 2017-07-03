@@ -1,13 +1,6 @@
 <!-- Modal Structure -->
 <div id="modal1" class="modal" materialize="modal" [materializeParams]="[{dismissible: true}]" [materializeActions]="modalActions">
 
-
-
-
-
-
-
-
   <form (ngSubmit)="save()" [formGroup] = "scheduleFormGroup">
     <div class="modal-content">
     
@@ -41,16 +34,10 @@
         </div>
 
         <div class="input-field col s4"  >
-          <input  type="text" [value]="schedule.schedule_time | date" autofocus autocomplete="off" readonly >
+          <input  type="text" [value]="schedule.schedule_time | date:'short'" autofocus autocomplete="off" readonly >
           <label >Schedule Date</label>
         </div>
 
-        <div class="input-field col s4"  >
-          <input [class.invalid] = "emschedule_time.control.isInvalidControl()"  type="text"  id="schedule_time" [(ngModel)]="schedule.schedule_time" formControlName='schedule_time' autofocus autocomplete="off" >   
-          <label [class.red-text] = "emschedule_time.control.isInvalidControl()" for="estimated_time" >Schedule Time</label>
-          <app-error-message #emschedule_time [group] = "scheduleFormGroup" controlName = "schedule_time" ></app-error-message>
-        </div>
-        
       </div>  
 
     </div>
@@ -58,9 +45,13 @@
       <button class="left btn waves-effect waves-light" [disabled]="!scheduleFormGroup.valid" autofocus  type="submit" name="action" appConfirmDialog >Save
         <i class="material-icons right">send</i>
       </button>
-      <a (click)="closeModal()" class = "left btn waves-effect red modal-button " ><i class="material-icons right">delete</i>Remove</a>
+      <div *ngIf="schedule.id">
+          <a (click)="deleteSchedule()" class = "modal-button left btn waves-effect red  " appConfirmDialog ><i class="material-icons right">delete</i>Remove</a>
+      </div>
+      
       <a (click)="closeModal()" class = "right  btn waves-effect " >Cancel</a>
     </div>
+
   </form>
 
 </div>

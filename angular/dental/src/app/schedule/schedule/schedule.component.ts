@@ -141,4 +141,10 @@ export class ScheduleComponent implements OnInit {
     this.searchEvents();
   }
 
+  ondelete(pSchedule){
+    //this.searchEvents();
+    this.myCalendar.fullCalendar('removeEvents',pSchedule.id);
+    //this.myCalendar.fullCalendar(this.calendarOptions);
+  }
+
 }
