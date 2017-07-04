@@ -36,7 +36,7 @@ export class TreatmentService {
   }
 
   private apiURL(pPatientId:number):string{
-    return Global.apiURL()+"/patients/"+pPatientId+"/treatments";
+    return Global.apiURL()+"patients/"+pPatientId+"/treatments";
   } 
 
 }

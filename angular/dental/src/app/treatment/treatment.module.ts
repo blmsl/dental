@@ -1,3 +1,5 @@
+import { MaterializeModule } from 'angular2-materialize';
+import { ReactiveFormsModule } from '@angular/forms';
 import { DirectivesModule } from './../directives/directives.module';
 import { RouterModule } from '@angular/router';
 import { TreatmentRountingModule } from './treatment.routing.module';
@@ -10,8 +12,10 @@ import { TreatmentFormComponent } from './treatment/treatment-form/treatment-for
 @NgModule({
   imports: [
     CommonModule
-    ,TreatmentRountingModule
+    ,ReactiveFormsModule
     ,RouterModule
+
+    ,MaterializeModule
     ,DirectivesModule
   ],
   declarations: [TreatmentComponent, TreatmentFormComponent]

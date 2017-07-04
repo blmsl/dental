@@ -14,6 +14,8 @@ import { ProcedureCategoryFormComponent } from './procedure-category/procedure-c
 import { ProcedureComponent } from './procedure/procedure.component';
 import { ProcedureFormComponent } from './procedure/procedure-form/procedure-form.component';
 import { ClinicRountingModule } from './clinic.routing.module';
+import { PlanComponent } from './plan/plan.component';
+import { PlanFormComponent } from './plan/plan-form/plan-form.component';
 
 @NgModule({
   imports: [
@@ -33,7 +35,7 @@ import { ClinicRountingModule } from './clinic.routing.module';
     ProcedureCategoryComponent
   , ProcedureCategoryFormComponent
   , ProcedureComponent
-  , ProcedureFormComponent
+  , ProcedureFormComponent, PlanComponent, PlanFormComponent
   
   ]
 })

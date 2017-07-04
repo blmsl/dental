@@ -18,11 +18,12 @@ class TreatmentsController < ApplicationController
   def create
     @treatment = Treatment.new(treatment_params)
     @treatment.patient = @patient
+    print "jhon #{@treatment.patient}"
 
     if @treatment.save
       render json: @treatment
     else
-      render json: @treatment.errors, status: :unprocessable_entity
+      render json: @treatment.errors.messages, status: :unprocessable_entity
     end
   end
 
@@ -52,7 +53,7 @@ class TreatmentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def treatment_params
-      params.require(:treatment).permit(:description,:plan_id)
+      params.require(:treatment).permit(:description,:plan_id,:patient_id)
     end
     
 end
