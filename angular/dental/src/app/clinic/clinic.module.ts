@@ -1,3 +1,4 @@
+import { PlanService } from './plan/shared/plan.service';
 import { RouterModule } from '@angular/router';
 import { UtilsModule } from './../utils/utils.module';
 import { MaterializeModule } from 'angular2-materialize';
@@ -30,12 +31,15 @@ import { PlanFormComponent } from './plan/plan-form/plan-form.component';
   providers :[
     ProcedureCategoryService
     ,ProcedureService
+    ,PlanService
   ],
   declarations: [
     ProcedureCategoryComponent
   , ProcedureCategoryFormComponent
   , ProcedureComponent
-  , ProcedureFormComponent, PlanComponent, PlanFormComponent
+  , ProcedureFormComponent
+  , PlanComponent
+  , PlanFormComponent
   
   ]
 })

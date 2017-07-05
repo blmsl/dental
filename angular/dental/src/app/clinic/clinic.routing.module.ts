@@ -1,3 +1,5 @@
+import { PlanFormComponent } from './plan/plan-form/plan-form.component';
+import { PlanComponent } from './plan/plan.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
@@ -16,6 +18,10 @@ const CLINIC_ROUTE: Routes = [
     ,{path:'procedure-categories',component: ProcedureCategoryComponent}
     ,{path:'procedure-categories/new',component: ProcedureCategoryFormComponent}
     ,{path:'procedure-categories/:id',component: ProcedureCategoryFormComponent}
+
+    ,{path:'plans',component: PlanComponent}
+    ,{path:'plans/new',component: PlanFormComponent}
+    ,{path:'plans/:id',component: PlanFormComponent}
 ];
 @NgModule({
     imports:[RouterModule.forChild(CLINIC_ROUTE)],
