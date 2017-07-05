@@ -1,10 +1,12 @@
+
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { PlanService } from './../../../clinic/plan/shared/plan.service';
+import { Plan } from './../../../clinic/plan/shared/plan';
 import { TreatmentService } from './../shared/treatment.service';
 import { Treatment } from './../shared/treatment';
-import { PatientService } from './../../../patient/patient/shared/patient.service';
-import { Patient } from './../../../patient/patient/shared/patient';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -15,12 +17,12 @@ import { Component, OnInit } from '@angular/core';
 export class TreatmentFormComponent implements OnInit {
 
   title:string;
-  patients:Array<Patient> = [];
+  plans:Array<Plan> = [];
   treatment:Treatment = new Treatment();
   treatmentFormGroup:FormGroup;
 
   constructor(
-    private _patientService:PatientService
+    private _plansService:PlanService
     ,private _service:TreatmentService
     ,private _route:ActivatedRoute
     ,private _router:Router
@@ -31,12 +33,10 @@ export class TreatmentFormComponent implements OnInit {
 
   ngOnInit() {
     this.treatmentFormGroup = this._formBuilder.group({
-      //patient_id:[null,Validators.required]
+      plan_id:[null,Validators.required]
     });
 
-    this._patientService.getAll().subscribe(data => this.patients = data);
-    console.log(this._route);
-    console.log(this._route.parent);
+    this._plansService.getAll().subscribe(data => this.plans = data);
     this._route.parent.params.subscribe(params =>{
       let lPatientId = params['id'];
       

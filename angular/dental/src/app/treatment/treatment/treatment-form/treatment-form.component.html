@@ -7,13 +7,16 @@
       <div class="card-content">
         <span class="card-title">{{title}}</span>  
         
-        <!--<div class="row">
-          <div class="input-field s12"  >
-            <input [class.invalid] = "emdescription.control.isInvalidControl()"  type="text" id="description" [(ngModel)]="procedureCategory.description" formControlName='description' appAutoFocus autofocus autocomplete="off" >
-            <label [class.red-text] = "emdescription.control.isInvalidControl()" for="description" >Description</label>            
-            <app-error-message #emdescription [group] = "procedureCategoryFormGroup" controlName = "description" ></app-error-message>
+        <div class="row">
+            <div class="input-field">
+            <select [(ngModel)]="treatment.plan_id" materialize = "material_select" [materializeSelectOptions]="plans" formControlName = "plan_id">
+              <option  value = "" disabled selected>Choose a Plan</option>
+              <option *ngFor = "let p of plans" value="{{p.id}}">{{p.description}}</option>
+            </select>
+            <label for="plan_id" data-error="wrong" data-success="right" >Plan</label>
+            <app-error-message #emplan_id [group] = "treatmentFormGroup" controlName = "plan_id" ></app-error-message>
+            </div>
           </div>
-        </div>  -->
         
       </div>
       <div class="card-action">

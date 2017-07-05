@@ -12,12 +12,13 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>Description</th>
+              <th>Plan</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let t of treatments">
               <td>{{ t.id }}</td>
+              <td>{{ t.plan.description }}</td>
               
               <td class="actions" >
                 <a  appConfirmDialog (click)="delete(t)"  class="right btn-floating btn-large waves-effect waves-light "><i class="material-icons red">delete</i></a>

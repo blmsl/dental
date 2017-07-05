@@ -6,7 +6,7 @@ class TreatmentsController < ApplicationController
   # GET /treatments
   def index
     @treatments = @patient.treatments
-    render json: @treatments
+    render json: @treatments, :include => 'plan'
   end
 
   # GET /treatments/1
