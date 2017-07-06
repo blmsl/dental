@@ -1,3 +1,4 @@
+import { AnamnesisModelModule } from './anamnesis-model/anamnesis-model.module';
 import { TreatmentModule } from './treatment/treatment.module';
 import { DentistModule } from './dentist/dentist.module';
 import { ScheduleModule } from './schedule/schedule.module';
@@ -39,6 +40,7 @@ import { SidenavComponent } from './layout-components/sidenav/sidenav.component'
     ,DentistModule
     ,ScheduleModule
     ,TreatmentModule
+    ,AnamnesisModelModule
     ,UtilsModule
     ,FlashMessagesModule
     
