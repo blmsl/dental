@@ -1,3 +1,5 @@
+import { MaterializeModule } from 'angular2-materialize';
+import { QuestionService } from './questions/shared/question.service';
 import { DirectivesModule } from './../directives/directives.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UtilsModule } from './../utils/utils.module';
@@ -7,17 +9,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AnamnesisModelComponent } from './anamnesis-model/anamnesis-model.component';
 import { AnamnesisModelFormComponent } from './anamnesis-model/anamnesis-model-form/anamnesis-model-form.component';
+import { QuestionFormComponent } from './questions/question-form/question-form.component';
 
 @NgModule({
   imports: [
     CommonModule
     ,ReactiveFormsModule
+    ,MaterializeModule
 
     ,AnamnesisModelRountingModule
     ,UtilsModule
     ,DirectivesModule
   ],
-  declarations: [AnamnesisModelComponent, AnamnesisModelFormComponent]
-  ,providers:[AnamnesisModelService]
+  declarations: [AnamnesisModelComponent, AnamnesisModelFormComponent, QuestionFormComponent]
+  ,providers:[AnamnesisModelService,QuestionService]
 })
 export class AnamnesisModelModule { }

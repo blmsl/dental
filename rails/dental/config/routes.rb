@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :questions
   post 'schedules/search', to: 'schedules#index'
   resources :schedules
   resources :dentists

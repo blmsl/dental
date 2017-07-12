@@ -1,0 +1,25 @@
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal" materialize="modal" [materializeParams]="[{dismissible: true}]" [materializeActions]="modalActions">
+  <form (ngSubmit)="save()" [formGroup] = "questionFormGroup">
+    <div class="modal-content">
+
+      <div class="row">
+        <div class="input-field s12"  >
+          <input [class.invalid] = "emquestion_text.control.isInvalidControl()"  type="text" id="question_text" [(ngModel)]="question.question_text" formControlName='question_text' appAutoFocus autofocus autocomplete="off" >
+          <label [class.red-text] = "emquestion_text.control.isInvalidControl()" for="question_text" >Question Text</label>
+          <app-error-message #emquestion_text [group] = "questionFormGroup" controlName = "question_text" ></app-error-message>
+        </div>
+    
+      </div> 
+    </div>
+
+     <div class="modal-footer card-action" >
+      <button class="left btn waves-effect waves-light" [disabled]="!questionFormGroup.valid" autofocus  type="submit" name="action" appConfirmDialog >Save
+        <i class="material-icons right">send</i>
+      </button>
+      
+      <a (click)="closeModal()" class = "right  btn waves-effect " >Cancel</a>
+    </div>
+  </form>
+</div>

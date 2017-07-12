@@ -10,16 +10,26 @@ class AnamnesisModelsController < ApplicationController
 
   # GET /anamnesis_models/1
   def show
-    render json: @anamnesis_model
+    render json: @anamnesis_model.to_json(:include => {:anamnesis_questions => {:include => :question}})
   end
 
   # POST /anamnesis_models
   def create
+    
     @anamnesis_model = AnamnesisModel.new(anamnesis_model_params)
-
+    @anamnesis_model.anamnesis_questions.each do |q|
+      q.anamnesis_model = @anamnesis_model
+      print "#{q} \n"
+      print "jhon"
+    end
+    
     if @anamnesis_model.save
       render json: @anamnesis_model, status: :created, location: @anamnesis_model
     else
+      @anamnesis_model.errors.each do |e|
+        print e;
+      end
+
       render json: @anamnesis_model.errors, status: :unprocessable_entity
     end
   end
@@ -46,6 +56,13 @@ class AnamnesisModelsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def anamnesis_model_params
-      params.require(:anamnesis_model).permit(:description)
-    end
+      
+      params[:anamnesis_model][:anamnesis_questions_attributes] = params[:anamnesis_model][:anamnesis_questions]
+      params[:anamnesis_model].delete(:anamnesis_questions);
+      
+      print params;
+      
+      params.require(:anamnesis_model).permit(:description,anamnesis_questions_attributes: [:id,:question_id,:question_active])
+      
+  end
 end
