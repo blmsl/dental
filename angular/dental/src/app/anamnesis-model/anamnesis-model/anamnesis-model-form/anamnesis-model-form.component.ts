@@ -38,9 +38,13 @@ export class AnamnesisModelFormComponent implements OnInit {
     this._route.params.subscribe(params => {
       let id = params['id'];
       this.title = id?'Editing':'Creating';
-      if (!id) return;
+      let lServiceResult;
+      if (id) 
+        lServiceResult = this._service.get(id);
+      else
+        lServiceResult = this._service.new_object();
 
-      this._service.get(id).subscribe(data => {
+      lServiceResult.subscribe(data => {
         this.anamnesisModel = data;
         for (let lCont = 0; lCont < this.anamnesisModel.anamnesis_questions.length;lCont++){
           this.addAnamnesisQuestionFormControl()
@@ -65,10 +69,10 @@ export class AnamnesisModelFormComponent implements OnInit {
     this.questionform.newQuestion();
   }
 
-  removeQuestion(pAnamnesisQuestion){
-    let index = this.anamnesisModel.anamnesis_questions.indexOf(pAnamnesisQuestion);
-    this.anamnesisModel.anamnesis_questions.splice(index,1);
+  editQuestion(pQuestionId:number){
+    this.questionform.editQuestion(pQuestionId);
   }
+  
 
   save(){
     let lServiceResult;
@@ -88,12 +92,22 @@ export class AnamnesisModelFormComponent implements OnInit {
   }
 
   onQuestionSave(pQuestion){
-    let lAnamnesisQuestion = new AnamnesisQuestion();
+    
+    let lAnamnesisQuestion = this.anamnesisModel.anamnesis_questions.find(
+      lAnamnesisQuestion => {
+        return lAnamnesisQuestion.question.id == pQuestion.id
+      }
+      
+    );
+    
+    if (!lAnamnesisQuestion){
+      lAnamnesisQuestion = new AnamnesisQuestion();
+      lAnamnesisQuestion.question_id = pQuestion.id;
+      lAnamnesisQuestion.question_active = true;  
+      this.anamnesisModel.anamnesis_questions.push(lAnamnesisQuestion);
+      this.addAnamnesisQuestionFormControl();
+    }
     lAnamnesisQuestion.question = pQuestion;
-    lAnamnesisQuestion.question_id = pQuestion.id;
-    this.anamnesisModel.anamnesis_questions.push(lAnamnesisQuestion);
-    this.addAnamnesisQuestionFormControl();
-    console.log(this.anamnesisModel);
   }
 
 }

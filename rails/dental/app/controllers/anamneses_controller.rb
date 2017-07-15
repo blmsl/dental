@@ -1,17 +1,20 @@
+require "#{Rails.root}/app/services/answers_builder_service.rb"
+
 class AnamnesesController < ApplicationController
-  before_action :set_patient, only: [:show, :update, :create]
+  before_action :set_patient, only: [:show, :update]
 
   # GET /anamneses/1
   def show
-    print @anamnesis
-    render json: @anamnesis
+    
+    (AnswersBuilderService.new({:anamnesis => @anamnesis})).build_answers 
+    render json: @anamnesis.to_json(:include => {:answers => {:include => :question}})
   end
 
   # POST /anamneses
   def create
     @anamnesis = Anamnesis.new(anamnesis_params)
     @anamnesis.patient = @patient;
-    @anamnesis.anamnesis_model = AnamnesisModel.first
+   
     @patient.anamnesis = @anamnesis
 
 
@@ -37,8 +40,10 @@ class AnamnesesController < ApplicationController
       @patient = Patient.find(params[:patient_id])
       @anamnesis = @patient.anamnesis
       if not @anamnesis
-        @anamnesis = Anamnesis.new
+        @anamnesis = @patient.anamnesis.build
+        @anamnesis.anamnesis_model = AnamnesisModel.first
       end
+
     end
 
     # Only allow a trusted parameter "white list" through.

@@ -22,6 +22,11 @@ export class AnamnesisModelService {
       .map(res => res.json());
   }
 
+  new_object(){
+    return this._http.get(this.apiUrl + '/new' )
+      .map(res => res.json());
+  }
+
   create(pAnamnesisModel:AnamnesisModel){
     return this._http.post(this.apiUrl, {'anamnesis_model': pAnamnesisModel})
       .map(res => res.json());

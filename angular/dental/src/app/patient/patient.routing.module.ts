@@ -1,3 +1,4 @@
+import { AnamnesisComponent } from './../anamnesis/anamnesis/anamnesis.component';
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -24,6 +25,9 @@ const PATIENT_ROUTE: Routes = [
             ,{ path: 'treatments', component:TreatmentComponent }
             ,{ path: 'treatments/new', component:TreatmentFormComponent }
             ,{ path: 'treatments/:id', component:TreatmentFormComponent }
+
+            ,{ path: 'anamnesis', component:AnamnesisComponent }
+            
         ]
     }
 

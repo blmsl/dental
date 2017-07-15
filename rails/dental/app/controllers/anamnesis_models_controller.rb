@@ -1,15 +1,17 @@
+require "#{Rails.root}/app/services/anamnesis_questions_builder_service.rb"
+
 class AnamnesisModelsController < ApplicationController
   before_action :set_anamnesis_model, only: [:show, :update, :destroy]
 
   # GET /anamnesis_models
   def index
     @anamnesis_models = AnamnesisModel.all
-
     render json: @anamnesis_models
   end
 
   # GET /anamnesis_models/1
   def show
+    build_anamnesis_questions
     render json: @anamnesis_model.to_json(:include => {:anamnesis_questions => {:include => :question}})
   end
 
@@ -49,9 +51,17 @@ class AnamnesisModelsController < ApplicationController
   end
 
   private
+    def build_anamnesis_questions
+      (AnamnesisQuestionsBuilderService.new({:anamnesis_model => @anamnesis_model})).build_anamnesis_questions_for(Question.all) 
+    end 
+      
     # Use callbacks to share common setup or constraints between actions.
     def set_anamnesis_model
-      @anamnesis_model = AnamnesisModel.find(params[:id])
+      if (params[:id].to_sym == :new)
+        @anamnesis_model = AnamnesisModel.new
+      else
+        @anamnesis_model = AnamnesisModel.find(params[:id])
+      end
     end
 
     # Only allow a trusted parameter "white list" through.

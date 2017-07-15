@@ -4,7 +4,7 @@ export class AnamnesisQuestion {
     id:number;
     question:Question;
     question_id:number;
-    question_active:number;
+    question_active:boolean;
 
     constructor(){
         this.question = new Question();

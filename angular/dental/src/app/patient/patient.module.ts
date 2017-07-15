@@ -1,3 +1,4 @@
+import { AnamnesisModule } from './../anamnesis/anamnesis.module';
 import { MaterializeModule } from 'angular2-materialize';
 import { PatientRountingModule } from './patient.routing.module';
 
@@ -29,6 +30,7 @@ import { PatientDashboardComponent } from './patient/patient-dashboard/patient-d
     ,DirectivesModule
     ,UtilsModule
     ,PatientRountingModule
+    ,AnamnesisModule
   ],
   declarations: [
     PatientGroupComponent

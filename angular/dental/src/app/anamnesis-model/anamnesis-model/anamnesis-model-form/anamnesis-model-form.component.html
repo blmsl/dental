@@ -32,20 +32,20 @@
               <tr>
                 
                 <th>Question Text</th>
-                <th class = "right">Status</th>
+                <th class = "">Status</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let aq of anamnesisModel.anamnesis_questions; let i = index" [formGroupName]="i" >
               
                 <td>{{ aq.question?.question_text }}</td>
-                <td class="actions right" >
+                <td class="actions " >
+                  <a  (click) = "editQuestion(aq.question_id)"  class="right btn-floating btn-large waves-effect waves-light "><i class="material-icons">edit</i></a>
                   <div class="switch">
                     <label>
                       
                       <input id = "question_active" type="checkbox" 
                             [(ngModel)]  = "aq.question_active" 
-                            
                             formControlName='question_active' >
                       
                       <span class="lever"></span>

@@ -37,5 +37,8 @@ module Dental
     config.api_only = true
     config.time_zone = 'Brasilia'
     #config.active_record.default_timezone = :local
+
+    config.eager_load_paths += ["#{Rails.root}/app/services"]
+    #config.autoload_paths << "#{Rails.root}/app/services"
   end
 end

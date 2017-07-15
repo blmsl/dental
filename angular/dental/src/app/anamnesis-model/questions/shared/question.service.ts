@@ -27,7 +27,7 @@ export class QuestionService {
   }
 
   update(pQuestion:Question){
-    return this._http.put(this.apiUrl + '/' + pQuestion, {'questions': pQuestion})
+    return this._http.put(this.apiUrl + '/' + pQuestion.id, {'question': pQuestion})
       .map(res => res.json());
   }
 

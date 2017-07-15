@@ -1,3 +1,4 @@
 class QuestionAnswer < ApplicationRecord
-	belongs_to :anamnesis_question
+	belongs_to :anamensis
+	belongs_to :question
 end
