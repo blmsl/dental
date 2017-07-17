@@ -38,9 +38,11 @@ class AnamnesesController < ApplicationController
 
     def set_patient
       @patient = Patient.find(params[:patient_id])
-      @anamnesis = @patient.anamnesis
-      if not @anamnesis
-        @anamnesis = @patient.anamnesis.build
+      if @patient.anamnesis
+        @anamnesis = Anamnesis.includes(answers: :question).where({:patient_id => @patient.id}).first
+      else
+        @anamnesis = Anamnesis.new
+        @anamnesis.patient = @patient
         @anamnesis.anamnesis_model = AnamnesisModel.first
       end
 

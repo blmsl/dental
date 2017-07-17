@@ -24,4 +24,6 @@ export class AnamnesisComponent implements OnInit {
     })
   }
 
+  save(){}
+
 }

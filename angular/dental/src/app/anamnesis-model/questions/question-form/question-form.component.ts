@@ -27,6 +27,7 @@ export class QuestionFormComponent implements OnInit {
   ngOnInit() {
     this.questionFormGroup = this._formBuilder.group({
       question_text:[null,Validators.required]
+      ,question_type:[null,Validators.required]
     });
     
   }

@@ -2,6 +2,7 @@ import { MaterializeModule } from 'angular2-materialize';
 import { QuestionService } from './questions/shared/question.service';
 import { DirectivesModule } from './../directives/directives.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { UtilsModule } from './../utils/utils.module';
 import { AnamnesisModelService } from './anamnesis-model/shared/anamnesis-model.service';
 import { AnamnesisModelRountingModule } from './anamnesis-model.routing.module';
@@ -14,6 +15,7 @@ import { QuestionFormComponent } from './questions/question-form/question-form.c
 @NgModule({
   imports: [
     CommonModule
+    ,FormsModule 
     ,ReactiveFormsModule
     ,MaterializeModule
 

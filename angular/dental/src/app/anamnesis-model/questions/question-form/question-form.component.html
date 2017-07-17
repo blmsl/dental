@@ -10,8 +10,20 @@
           <label [class.red-text] = "emquestion_text.control.isInvalidControl()" for="question_text" >Question Text</label>
           <app-error-message #emquestion_text [group] = "questionFormGroup" controlName = "question_text" ></app-error-message>
         </div>
-    
       </div> 
+
+     
+
+      <div class="row">
+        <div class="input-field">
+          <select  [(ngModel)]= "question.question_type" materialize = "material_select" formControlName = "question_type">
+            <option  value = "" disabled selected>Choose a Question Type</option>
+            <option>Yes/No/I Don't</option>
+            <option>Yes/No</option>
+          </select>
+          <label for="question_type" data-error="wrong" data-success="right" >Question Type</label>
+        </div>
+      </div>
     </div>
 
      <div class="modal-footer card-action" >
