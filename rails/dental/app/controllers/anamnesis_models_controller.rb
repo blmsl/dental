@@ -60,7 +60,8 @@ class AnamnesisModelsController < ApplicationController
       if (params[:id].to_sym == :new)
         @anamnesis_model = AnamnesisModel.new
       else
-        @anamnesis_model = AnamnesisModel.find(params[:id])
+        #@anamnesis_model = AnamnesisModel.find(params[:id])
+        @anamnesis_model = AnamnesisModel.includes(anamnesis_questions: :question).find(params[:id])
       end
     end
 

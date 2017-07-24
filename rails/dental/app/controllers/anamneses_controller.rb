@@ -1,13 +1,15 @@
 require "#{Rails.root}/app/services/answers_builder_service.rb"
 
 class AnamnesesController < ApplicationController
-  before_action :set_patient, only: [:show, :update]
+  before_action :set_patient, only: [:show, :create, :update]
+  before_action :set_anamnesis_id_on_answers, only: [:create,:update]
 
   # GET /anamneses/1
   def show
     
-    (AnswersBuilderService.new({:anamnesis => @anamnesis})).build_answers 
+    @anamnesis = (AnswersBuilderService.new({:anamnesis => @anamnesis})).build_answers 
     render json: @anamnesis.to_json(:include => {:answers => {:include => :question}})
+    #render json: @anamnesis.to_json(:include => :answers)
   end
 
   # POST /anamneses
@@ -19,7 +21,7 @@ class AnamnesesController < ApplicationController
 
 
     if @anamnesis.save
-      render json: @anamnesis
+      self.show
     else
       render json: @anamnesis.errors, status: :unprocessable_entity
     end
@@ -28,7 +30,7 @@ class AnamnesesController < ApplicationController
   # PATCH/PUT /anamneses/1
   def update
     if @anamnesis.update(anamnesis_params)
-      render json: @anamnesis
+      self.show
     else
       render json: @anamnesis.errors, status: :unprocessable_entity
     end
@@ -50,7 +52,18 @@ class AnamnesesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def anamnesis_params
-      params.require(:anamnesis).permit(:observation, :anamnesis_model_id,:patient_id)
+      params[:anamnesis][:answers_attributes] = params[:anamnesis][:answers]
+      #params[:anamnesis].delete(:answers);
+    
+      params.require(:anamnesis).permit(:observation, :anamnesis_model_id,:patient_id, answers_attributes:[:id,:answer_text,:anamnesis_id,:question_id,:answer_additional_text])
     end
+
+    def set_anamnesis_id_on_answers
+      @anamnesis.answers.each do |a|
+        print "jhon \n"
+        a.anamnesis = @anamnesis
+      end
+    end
+
     
 end

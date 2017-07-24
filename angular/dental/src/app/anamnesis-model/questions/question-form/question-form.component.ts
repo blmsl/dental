@@ -1,8 +1,11 @@
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { MaterializeAction } from 'angular2-materialize';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 import { QuestionService } from './../shared/question.service';
 import { Question } from './../shared/question';
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { QuestionType, QuestionTypesList, QuestionTypeItemList } from './../shared/question-type';
+
 
 @Component({
   selector: 'anamnesis-model-question-form',
@@ -13,6 +16,7 @@ export class QuestionFormComponent implements OnInit {
 
   title:string;
   question:Question = new Question();
+  question_types:Array<QuestionTypeItemList> = QuestionTypesList;
   questionFormGroup:FormGroup;
   modalActions = new EventEmitter<string|MaterializeAction>();
 
@@ -28,6 +32,9 @@ export class QuestionFormComponent implements OnInit {
     this.questionFormGroup = this._formBuilder.group({
       question_text:[null,Validators.required]
       ,question_type:[null,Validators.required]
+      ,question_additional_text:[null]
+      ,is_alert_when:[null]
+      ,alert_text:[null]
     });
     
   }
@@ -70,6 +77,15 @@ export class QuestionFormComponent implements OnInit {
     
   closeModal() {
     this.modalActions.emit({action:"modal",params:['close']});
+  }
+
+  showQuestionAdditionalText(){
+    return  (QuestionType.yes_no_i_dont_know_and_text == this.question.question_type)
+            || (QuestionType.only_text == this.question.question_type);
+  }
+
+  showQuestionAlertText(){
+    return  (this.question.is_alert_when != undefined) && (this.question.is_alert_when.length > 0);
   }
 
 }

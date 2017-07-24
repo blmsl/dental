@@ -1,3 +1,4 @@
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { AnamnesisService } from './anamnesis/shared/anamnesis.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -7,6 +8,8 @@ import { AnswerFormComponent } from './answer-form/answer-form.component';
 @NgModule({
   imports: [
     CommonModule
+    ,ReactiveFormsModule
+    ,FormsModule
   ],
   declarations: [AnamnesisComponent, AnswerFormComponent]
   ,providers:[AnamnesisService]

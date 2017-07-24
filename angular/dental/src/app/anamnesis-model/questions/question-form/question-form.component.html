@@ -5,7 +5,7 @@
     <div class="modal-content">
 
       <div class="row">
-        <div class="input-field s12"  >
+        <div class="input-field col s12"  >
           <input [class.invalid] = "emquestion_text.control.isInvalidControl()"  type="text" id="question_text" [(ngModel)]="question.question_text" formControlName='question_text' appAutoFocus autofocus autocomplete="off" >
           <label [class.red-text] = "emquestion_text.control.isInvalidControl()" for="question_text" >Question Text</label>
           <app-error-message #emquestion_text [group] = "questionFormGroup" controlName = "question_text" ></app-error-message>
@@ -15,15 +15,38 @@
      
 
       <div class="row">
-        <div class="input-field">
+        <div class="input-field col s6">
           <select  [(ngModel)]= "question.question_type" materialize = "material_select" formControlName = "question_type">
             <option  value = "" disabled selected>Choose a Question Type</option>
-            <option>Yes/No/I Don't</option>
-            <option>Yes/No</option>
+             <option *ngFor = "let qt of question_types" value="{{qt.id}}">{{qt.description}}</option>
           </select>
           <label for="question_type" data-error="wrong" data-success="right" >Question Type</label>
         </div>
+
+        <div *ngIf = "showQuestionAdditionalText()" class="input-field col s6"  >
+          <input [class.invalid] = "emquestion_additional_text.control.isInvalidControl()"  type="text" id="question_additional_text" [(ngModel)]="question.question_additional_text" formControlName='question_additional_text' appAutoFocus autofocus autocomplete="off" >
+          <label [class.red-text] = "emquestion_additional_text.control.isInvalidControl()" for="question_additional_text" >Additional Text</label>
+          <app-error-message #emquestion_additional_text [group] = "questionFormGroup" controlName = "question_additional_text" ></app-error-message>
+        </div>
       </div>
+
+      <div class="row">
+        <div class="input-field col s6">
+          <select  [(ngModel)]= "question.is_alert_when" materialize = "material_select" formControlName = "is_alert_when">
+            <option  value = "" >Has no Alert</option>
+            <option  value = "Y" >When Answer is 'Yes'</option>
+            <option  value = "N" >When Answer is 'No'</option>
+          </select>
+          <label for="is_alert_when" data-error="wrong" data-success="right" >Does it has Alert</label>
+        </div>
+
+        <div *ngIf = "showQuestionAlertText()" class="input-field col s6"  >
+          <input [class.invalid] = "emalert_text.control.isInvalidControl()"  type="text" id="alert_text" [(ngModel)]="question.alert_text" formControlName='alert_text' appAutoFocus autofocus autocomplete="off" >
+          <label [class.red-text] = "emalert_text.control.isInvalidControl()" for="alert_text" >Alert Text</label>
+          <app-error-message #emalert_text [group] = "questionFormGroup" controlName = "alert_text" ></app-error-message>
+        </div>
+      </div>
+
     </div>
 
      <div class="modal-footer card-action" >

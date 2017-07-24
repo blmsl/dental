@@ -15,14 +15,15 @@ class AnswersBuilderService
 
         # get Id list of available questions for this Anamnesis
         lAllQuestions = @anamnesis.questions.map { |hash| hash.question}
-        print lAllQuestions
+        #print lAllQuestions
                            
         # get non existing elements on anamnesis
-        lNotPresentElements = lAllQuestions.reject { |question| lExistingAnswers.include? question }
+        lNotPresentElements = lAllQuestions.reject { |question| lExistingAnswers.include? question.id }
         print lNotPresentElements
         
         #build anamnesisQuestion for each non existing question
         lNotPresentElements.each do |question|
+            print "incluindo elementos \n"
             lAnswerQuestion = @anamnesis.answers.build
             lAnswerQuestion.question_id = question.id
             lAnswerQuestion.question = question

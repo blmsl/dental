@@ -1,2 +1,26 @@
-{{answer.question?.question_text}}
 
+{{index + 1}} - {{answer.question?.question_text}}
+<div class = "row">
+    <div class="input-field col s2 m2 l2"  >
+        <div *ngIf = "showRadioOptions()">
+            <input value = "Y" name="answer_text_{{index}}" type="radio" id="answer_text_yes_{{index}}" [(ngModel)]="answer.answer_text"  />
+                <label for="answer_text_yes_{{index}}">Yes</label>
+                <input value = "N" name="answer_text_{{index}}" type="radio" id="answer_text_no_{{index}}" [(ngModel)]="answer.answer_text"  />
+                <label for="answer_text_no_{{index}}">No</label>
+
+                <div *ngIf = "showIDontKnowOption()">
+                    <input value = "D" name="answer_text_{{index}}" type="radio" id="answer_text_dk_{{index}}" [(ngModel)]="answer.answer_text"  />
+                    <label for="answer_text_dk_{{index}}">I Don't Know</label>    
+                </div>
+        </div>
+    </div>
+</div>
+
+<div class = "row" >
+    <div *ngIf = "showAdditionalText()">
+            <div class="input-field col s12"  >
+            <input  type="text" id="answer_additional_text_{{index}}" [(ngModel)]="answer.answer_additional_text" appAutoFocus autofocus autocomplete="off" >
+            <label  for="answer_additional_text_{{index}}" >Additional</label>
+        </div>
+    </div>
+</div>
