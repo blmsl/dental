@@ -1,3 +1,4 @@
+import { DirectivesModule } from './../directives/directives.module';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { AnamnesisService } from './anamnesis/shared/anamnesis.service';
 import { NgModule } from '@angular/core';
@@ -10,6 +11,7 @@ import { AnswerFormComponent } from './answer-form/answer-form.component';
     CommonModule
     ,ReactiveFormsModule
     ,FormsModule
+    ,DirectivesModule
   ],
   declarations: [AnamnesisComponent, AnswerFormComponent]
   ,providers:[AnamnesisService]

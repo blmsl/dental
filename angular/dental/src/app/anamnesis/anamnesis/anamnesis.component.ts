@@ -1,3 +1,4 @@
+import { FlashMessagesService } from 'angular2-flash-messages';
 import { ActivatedRoute } from '@angular/router';
 import { AnamnesisService } from './shared/anamnesis.service';
 import { Anamnesis } from './shared/anamnesis';
@@ -15,6 +16,7 @@ export class AnamnesisComponent implements OnInit {
   constructor(
     private _service:AnamnesisService
     ,private _route:ActivatedRoute
+    ,private _flashMessagesService:FlashMessagesService
   ) { }
 
   ngOnInit() {
@@ -35,7 +37,10 @@ export class AnamnesisComponent implements OnInit {
       lResultService = this._service.create(this._patient_id,this.anamnesis)
     }
     lResultService.subscribe(res => {
-      console.log(res)
+       this._flashMessagesService.show('Anamnesis successfully Updated!', { cssClass: 'alert-success', timeout: 2000 });
+    }
+    ,(err) => {
+      this._flashMessagesService.show(err.statusText, { cssClass: 'alert-danger', timeout: 2000 })
     });
   }
 

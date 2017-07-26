@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   resources :patients do
     resource :anamneses	
     resources :treatments
+    get 'alerts', to:'alerts#index'
   end  
+  
   resources :procedures
   resources :procedure_categories
   resources :chairs
