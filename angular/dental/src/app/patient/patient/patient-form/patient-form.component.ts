@@ -76,6 +76,7 @@ export class PatientFormComponent implements OnInit {
       lServiceResult = this._service.create(this.patient);
     
     lServiceResult.subscribe(res => {      
+      this.patient = res;
       this._flashMessagesService.show('Patient successfully '+(this.patient.id?'Updated':'Created')+'!', { cssClass: 'alert-success', timeout: 2000 });
       this._router.navigate(['/patients',this.patient.id,'show-detail'])
     },
