@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'authentication/authenticate'
+
   resources :questions
   post 'schedules/search', to: 'schedules#index'
   resources :schedules
@@ -16,5 +18,7 @@ Rails.application.routes.draw do
   resources :procedures
   resources :procedure_categories
   resources :chairs
+
+   post 'authenticate', to: 'authentication#authenticate'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

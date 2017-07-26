@@ -41,3 +41,6 @@ gem 'rack-cors'
 gem "active_model_serializers"
 gem 'draper'
 #gem 'jsonapi-serializers'
+gem 'bcrypt', platforms: :ruby
+gem 'jwt'
+gem 'simple_command'
