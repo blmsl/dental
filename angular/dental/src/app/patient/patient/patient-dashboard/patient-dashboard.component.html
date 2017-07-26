@@ -1,24 +1,5 @@
-<div class="navbar-fixed" style = "padding: 0 0.75rem;">
-<nav >
-    <div class="nav-wrapper white">
-      
-      <!--<a href="#" class="brand-logo right">Patient One</a>-->
-      <ul id="nav-mobile" class="center">
-        <li><a [routerLink] = "['show-detail']" class = "nav-item" >About</a></li>
-        <li><a href="badges.html"  class = "nav-item">Budget</a></li>
-        <li><a [routerLink] = "['treatments']" class = "nav-item" >Treatments</a></li>
-        <li><a [routerLink] = "['anamnesis']" class = "nav-item" >Anamnesis</a></li>
-        <li><a href="badges.html" class = "nav-item">Images</a></li>
-        <li><a href="badges.html" class = "nav-item">Documents</a></li>
-        <li><a href="badges.html" class = "nav-item">Debits</a></li>
-        
-      </ul>
-
-      <a  [routerLink] = "['/patients',id,'edit']" class="btn-floating btn-large waves-effect waves-light ">
-            <i class="material-icons">edit</i>
-          </a>
-    </div>
-  </nav>
+<div class="row">
+  <div class="col s12 m12 l12 xl8">
+    <patient-patient-show-detail [patient] = "patient"></patient-patient-show-detail>
+  </div>
 </div>
-
-<router-outlet></router-outlet>

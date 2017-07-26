@@ -1,6 +1,8 @@
 import { ActivatedRoute } from '@angular/router';
-import { PatientService } from './../shared/patient.service';
 import { Component, OnInit } from '@angular/core';
+
+import { PatientService } from './../shared/patient.service';
+import { Patient } from './../shared/patient';
 
 @Component({
   selector: 'app-patient-dashboard',
@@ -9,14 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientDashboardComponent implements OnInit {
 
-  id:number;
+  patient:Patient;
 
-  constructor(public route:ActivatedRoute) { }
+  constructor(
+    private route:ActivatedRoute
+    ,private _service:PatientService
+  ) { }
 
   ngOnInit() {
-    this.route.params.subscribe( params => this.id = params['id']);
+    this.route.parent.params.subscribe( params => {
+      let id = params['id'];
+      if (!id) return;
+      this._service.get(id).subscribe(data => {
+        this.patient = data;
+        console.log(this.patient);
+      } )      
+    });
   }
-
-  
 
 }

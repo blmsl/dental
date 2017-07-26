@@ -1,3 +1,4 @@
+import { PatientLayoutComponent } from './patient/patient-layout/patient-layout.component';
 import { AnamnesisComponent } from './../anamnesis/anamnesis/anamnesis.component';
 
 import { NgModule } from '@angular/core';
@@ -16,10 +17,10 @@ import { PatientFormComponent } from './patient/patient-form/patient-form.compon
 const PATIENT_ROUTE: Routes = [
     {path:'patients',component: PatientComponent}
     ,{path:'patients/new',component: PatientFormComponent}
-    ,{path:'patients/:id',component: PatientDashboardComponent
+    ,{path:'patients/:id',component: PatientLayoutComponent
         ,children: [
-            { path: '', redirectTo: 'show-detail', pathMatch: 'full' }
-            ,{ path: 'show-detail', component: PatientShowDetailComponent }
+            { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
+            ,{ path: 'dashboard', component: PatientDashboardComponent }
             ,{ path: 'edit', component: PatientFormComponent }
 
             ,{ path: 'treatments', component:TreatmentComponent }

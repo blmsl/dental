@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col s12 m12 l12 xl8">
+  <div class="col s12 m12 l12 xl12">
     <div class="card">
         <div class="card-content">
            
@@ -9,31 +9,31 @@
 
               <div class=" col s12 m2 l2"  >
                 <label for="cpf" >ID</label>
-                <input id="cpf" [ngModel]="patient.id"  readonly >
+                <input id="cpf" [ngModel]="patient?.id"  readonly >
               </div>
 
               <div class=" col s12 m2 l2"  >
                 <label for="cpf" >CPF</label>
-                <input id="cpf" [ngModel]="patient.cpf"  readonly >
+                <input id="cpf" [ngModel]="patient?.cpf"  readonly >
               </div>
               
               <div class="col s12 m6 l6"  >
                 <label for="name" >name</label>
-                <input id="name" [ngModel]="patient.name" readonly  >
+                <input id="name" [ngModel]="patient?.name" readonly  >
               </div>
             </div>
 
             <div class="row">
               <div class="col s12 m6 l6"  >
                 <label for="name" >Patient Group</label>
-                <input type="text" id="patient_group" [ngModel]="patient.patient_group.description" readonly >
+                <input type="text" id="patient_group" [ngModel]="patient?.patient_group.description" readonly >
                 
               </div>
 
               <div class="s12 m2 l2"  >
-                  <input value = "M" name="gender" type="radio" id="male" [ngModel]="patient.gender" readonly />
+                  <input value = "M" name="gender" type="radio" id="male" [ngModel]="patient?.gender" readonly />
                   <label for="male">Male</label>
-                  <input value = "F" name="gender" type="radio" id="female" [ngModel]="patient.gender" readonly />
+                  <input value = "F" name="gender" type="radio" id="female" [ngModel]="patient?.gender" readonly />
                   <label for="female">Female</label>                
               </div>
             </div>
@@ -41,32 +41,32 @@
             <div class="row">
               <div class="col s12 m2 l2">
                  <label for="date_of_birth" >Date Of Birth</label>
-                <input type="text" id="date_of_birth" [ngModel]="patient.date_of_birth" readonly>
+                <input type="text" id="date_of_birth" [ngModel]="patient?.date_of_birth" readonly>
                
               </div>
               
               <div class="col s12 m6 l6"  >
                 <label for="location_of_birth" >Location Of Birth</label>
-                <input type="text" id="date_of_birth" [ngModel]="patient.location_of_birth" readonly >              
+                <input type="text" id="date_of_birth" [ngModel]="patient?.location_of_birth" readonly >              
               </div>
 
               <div class="col s12 m2 l2"  >
-                <input value = "married" name="material_status" type="radio" id="married" [ngModel]="patient.material_status" readonly />
+                <input value = "married" name="material_status" type="radio" id="married" [ngModel]="patient?.material_status" readonly />
                 <label for="married">Married</label>
-                <input value = "single" name="material_status" type="radio" id="single" [ngModel]="patient.material_status" readonly />
+                <input value = "single" name="material_status" type="radio" id="single" [ngModel]="patient?.material_status" readonly />
                 <label for="single">Single</label>
               </div>
 
               <div class="col s12 m2 l2"  >
                  <label for="rg" >RG</label>
-                <input type="text" id="rg" [ngModel]="patient.rg" readonly  >
+                <input type="text" id="rg" [ngModel]="patient?.rg" readonly  >
                
               </div>
             </div>
             <div class="row">
               <div class="col s12 m12 l12"  >
                   <label for="observation" >Observation</label>
-                  <textarea class = "materialize-textarea" type="text" id="observation" [ngModel]="patient.observation" readonly  ></textarea>
+                  <textarea class = "materialize-textarea" type="text" id="observation" [ngModel]="patient?.observation" readonly  ></textarea>
                
               </div>    
             </div>
@@ -75,13 +75,13 @@
               
               <div class="col s12 m6 l6"  >
                  <label for="email" >Email</label>
-                <input  type="text" id="contact.email" [ngModel]="patient.contact.email" readonly   >
+                <input  type="text" id="contact.email" [ngModel]="patient?.contact.email" readonly   >
               </div>
 
               
                <div class="col s12 m6 l6"  >
                  <label for="phone" >Phone</label>
-                <input  type="text" id="contact.phone" [ngModel]="patient.contact.phone" readonly   >
+                <input  type="text" id="contact.phone" [ngModel]="patient?.contact.phone" readonly   >
               </div>
            
           
@@ -92,30 +92,30 @@
               
               <div class="col s12 m2 l2"  >
                  <label for="postal_code" >Postal Code</label>
-                <input  type="text" id="address.street" [ngModel]="patient.address.postal_code" readonly   >
+                <input  type="text" id="address.street" [ngModel]="patient?.address.postal_code" readonly   >
               </div>
 
               
               <div class="col s12 m6 l6"  >
                 <label for="street" >Street</label>
-                <input  type="text" id="address.street" [ngModel]="patient.address.street" readonly >
+                <input  type="text" id="address.street" [ngModel]="patient?.address.street" readonly >
               </div>
 
               <div class="col s12 m2 l2"  >
                 <label for="neighborhood" >NeighborHood</label>
-                <input type="text" id="address.street" [ngModel]="patient.address.neighborhood" readonly >
+                <input type="text" id="address.street" [ngModel]="patient?.address.neighborhood" readonly >
               </div>
 
               <div class="col s12 m2 l2"  >
                 <label for="number" >Number</label>
-                <input type="text" id="address.street" [ngModel]="patient.address.address_number" readonly >
+                <input type="text" id="address.street" [ngModel]="patient?.address.address_number" readonly >
               </div>
             </div>
 
             <div class="row">
               <div class="col s12 m6 l6"  >
                 <label for="complement" >Complement</label>
-                <input type="text" id="address.street" [ngModel]="patient.address.complement" readonly >
+                <input type="text" id="address.street" [ngModel]="patient?.address.complement" readonly >
               </div>
             </div>
           </div>
