@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/codahale/bcrypt-ruby.git
+  revision: 23b0517e20e7ddf2e733c1bcdb22b0b12166f042
+  specs:
+    bcrypt (3.1.11)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -132,7 +138,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
-  bcrypt
+  bcrypt!
   byebug
   draper
   jwt
@@ -144,4 +150,4 @@ DEPENDENCIES
   tzinfo-data
 
 BUNDLED WITH
-   1.15.1
+   1.15.3

@@ -1,3 +1,5 @@
+require "#{Rails.root}/app/commands/authorize_api_request.rb"
+
 class ApplicationController < ActionController::API
 
 	before_action :authenticate_request
@@ -6,6 +8,7 @@ class ApplicationController < ActionController::API
 	private
 	 
 	def authenticate_request 
+		print "passei por aqui"
 		@current_user = AuthorizeApiRequest.call(request.headers).result 
 		render json: { error: 'Not Authorized' }, status: 401 unless @current_user 
 	end

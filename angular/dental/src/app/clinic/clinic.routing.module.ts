@@ -1,3 +1,4 @@
+import { AuthGuardService } from './../shared/auth-guard.service';
 import { PlanFormComponent } from './plan/plan-form/plan-form.component';
 import { PlanComponent } from './plan/plan.component';
 import { NgModule } from '@angular/core';
@@ -11,17 +12,26 @@ import { ProcedureFormComponent } from './procedure/procedure-form/procedure-for
 
 
 const CLINIC_ROUTE: Routes = [
-    {path:'procedures',component: ProcedureComponent}
-    ,{path:'procedures/new',component: ProcedureFormComponent}
-    ,{path:'procedures/:id',component: ProcedureFormComponent}
 
-    ,{path:'procedure-categories',component: ProcedureCategoryComponent}
-    ,{path:'procedure-categories/new',component: ProcedureCategoryFormComponent}
-    ,{path:'procedure-categories/:id',component: ProcedureCategoryFormComponent}
+    {
+        path: '',
+        canActivate: [AuthGuardService],
+        children: [
+            {path:'procedures',component: ProcedureComponent}
+            ,{path:'procedures/new',component: ProcedureFormComponent}
+            ,{path:'procedures/:id',component: ProcedureFormComponent}
 
-    ,{path:'plans',component: PlanComponent}
-    ,{path:'plans/new',component: PlanFormComponent}
-    ,{path:'plans/:id',component: PlanFormComponent}
+            ,{path:'procedure-categories',component: ProcedureCategoryComponent}
+            ,{path:'procedure-categories/new',component: ProcedureCategoryFormComponent}
+            ,{path:'procedure-categories/:id',component: ProcedureCategoryFormComponent}
+
+            ,{path:'plans',component: PlanComponent}
+            ,{path:'plans/new',component: PlanFormComponent}
+            ,{path:'plans/:id',component: PlanFormComponent}
+        ]
+    },
+
+    
 ];
 @NgModule({
     imports:[RouterModule.forChild(CLINIC_ROUTE)],

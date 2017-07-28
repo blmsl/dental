@@ -1,26 +1,27 @@
+import { AuthGuardService } from './shared/auth-guard.service';
+import { DirectivesModule } from './directives/directives.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { MaterializeModule } from 'angular2-materialize';
+import { FlashMessagesModule } from 'angular2-flash-messages';
+
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app.routing.module';
+import { NavbarComponent } from './layout-components/navbar/navbar.component';
+import { SidenavComponent } from './layout-components/sidenav/sidenav.component';
+import { AuthenticationModule } from './authentication/authentication.module';
 import { AnamnesisModelModule } from './anamnesis-model/anamnesis-model.module';
 import { TreatmentModule } from './treatment/treatment.module';
 import { DentistModule } from './dentist/dentist.module';
 import { ScheduleModule } from './schedule/schedule.module';
-import { AppRoutingModule } from './app.routing.module';
-import { UtilsModule } from './utils/utils.module';
 import { PatientModule } from './patient/patient.module';
 import { ClinicModule } from './clinic/clinic.module';
 import { ProcedureCategoryService } from './clinic/procedure-category/shared/procedure-category.service';
 import { LayoutComponentsModule } from './layout-components/layout-components.module';
 import { MenuService } from './menu/menu.service';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { MaterializeModule } from 'angular2-materialize';
-
-
-import { FlashMessagesModule } from 'angular2-flash-messages';
-
-import { AppComponent } from './app.component';
-import { NavbarComponent } from './layout-components/navbar/navbar.component';
-import { SidenavComponent } from './layout-components/sidenav/sidenav.component';
+import { UtilsModule } from './utils/utils.module';
 
 @NgModule({
   declarations: [
@@ -29,23 +30,25 @@ import { SidenavComponent } from './layout-components/sidenav/sidenav.component'
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
-    //,routing
-    ,AppRoutingModule
-    //,RouterModule
-
-    ,LayoutComponentsModule
-    ,ClinicModule
-    ,PatientModule
-    ,DentistModule
-    ,ScheduleModule
-    ,TreatmentModule
-    ,AnamnesisModelModule
-    ,UtilsModule
-    ,FlashMessagesModule
-    
+    HttpModule,
+    AppRoutingModule,
+    LayoutComponentsModule,
+    ClinicModule,
+    PatientModule,
+    DentistModule,
+    ScheduleModule,
+    TreatmentModule,
+    AnamnesisModelModule,
+    UtilsModule,
+    FlashMessagesModule,
+    AuthenticationModule
   ],
-  providers: [MenuService],
+  exports: [
+    DirectivesModule,
+    UtilsModule,
+    ReactiveFormsModule
+  ],
+  providers: [MenuService,AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
