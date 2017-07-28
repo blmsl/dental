@@ -2,17 +2,17 @@
 <form (ngSubmit)="login()" [formGroup] = "loginFormGroup" class = "white">
   <div class="row">
     <div class="input-field col s12"  >
-      <input [class.invalid] = "emlogin.control.isInvalidControl()"  type="text" id="email"  formControlName='email' appAutoFocus autofocus autocomplete="off" >
-      <label [class.red-text] = "emlogin.control.isInvalidControl()" for="email" >Email</label>
-      <app-error-message #emlogin [group] = "loginFormGroup" controlName = "email" ></app-error-message>
+      <input  type="text" id="email"  formControlName='email'  autofocus >
+      <label for="email" >Email</label>
+      
     </div>
   </div> 
 
   <div class="row">
     <div class="input-field col s12"  >
-      <input [class.invalid] = "empassword.control.isInvalidControl()"  type="password" id="password" formControlName='password' appAutoFocus autofocus autocomplete="off" >
-      <label [class.red-text] = "empassword.control.isInvalidControl()" for="password" >Password</label>
-      <app-error-message #empassword [group] = "loginFormGroup" controlName = "password" ></app-error-message>
+      <input   type="password" id="password" formControlName='password' autocomplete="off" >
+      <label for="password" >Password</label>
+      
     </div>
   </div> 
 

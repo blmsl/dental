@@ -1,4 +1,4 @@
-import { Global } from './../../global/global';
+import { Global, AUTH_TOKEN } from './../../global/global';
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 
@@ -12,7 +12,7 @@ export class AuthenticationService {
     return this._http.post(Global.apiURL()+"authenticate",{'email':pUserLogin.email,'password':pUserLogin.password})
             .map(res => res.json())
             .do((res) => {
-              localStorage.setItem('auth_token',res.auth_token);
+              localStorage.setItem(AUTH_TOKEN,res.auth_token);
               this.logged = true;
             })
   }

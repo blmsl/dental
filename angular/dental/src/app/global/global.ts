@@ -1,3 +1,5 @@
+export const AUTH_TOKEN = 'auth_token';
+
 export class Global{
 
     static apiURL(){

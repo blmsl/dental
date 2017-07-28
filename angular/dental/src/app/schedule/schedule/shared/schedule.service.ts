@@ -1,19 +1,20 @@
 import { Schedule } from './schedule';
 import { Observable } from 'rxjs/Rx';
-import { Http } from '@angular/http';
-import { Global } from './../../../global/global';
+import { Http,Headers } from '@angular/http';
+import { Global, AUTH_TOKEN } from './../../../global/global';
 import { Injectable } from '@angular/core';
+
+import { BaseAuthorizedService } from '../../../shared/base-authorized.service';
+
 
 
 @Injectable()
-export class ScheduleService {
+export class ScheduleService extends BaseAuthorizedService {
 
- private apiUrl = Global.apiURL()+"schedules";
-
-  constructor(private _http:Http) { }
+  private apiUrl = Global.apiURL()+"schedules";
 
   getAll(){ 
-    return this._http.get(this.apiUrl)
+    return this._http.get(this.apiUrl,{'headers':this.headers()})
       .map(res => res.json());
   }
 

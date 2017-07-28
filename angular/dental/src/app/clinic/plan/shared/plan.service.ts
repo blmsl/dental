@@ -1,14 +1,14 @@
 import { Observable } from 'rxjs/Rx';
 import { Http } from '@angular/http';
-import { Global } from './../../../global/global';
 import { Injectable } from '@angular/core';
 
+import { Global } from './../../../global/global';
+import { BaseAuthorizedService } from '../../../shared/base-authorized.service';
+
 @Injectable()
-export class PlanService {
+export class PlanService extends BaseAuthorizedService{
 
   private apiUrl = Global.apiURL()+"plans";
-
-  constructor(private _http:Http) { }
 
   getAll(){ 
     return this._http.get(this.apiUrl)
