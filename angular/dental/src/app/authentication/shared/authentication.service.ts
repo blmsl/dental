@@ -1,10 +1,12 @@
 import { Global, AUTH_TOKEN } from './../../global/global';
 import { Http } from '@angular/http';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable()
 export class AuthenticationService {
+
   private logged = false;
+  onAuthStateChange:EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(private _http:Http) { }
 
@@ -14,6 +16,7 @@ export class AuthenticationService {
             .do((res) => {
               localStorage.setItem(AUTH_TOKEN,res.auth_token);
               this.logged = true;
+              this.onAuthStateChange.emit(true);
             })
   }
 
@@ -22,7 +25,9 @@ export class AuthenticationService {
   }
   
   logout(){
-
+    localStorage.removeItem(AUTH_TOKEN);
+    this.onAuthStateChange.emit(false);
+    this.logged = false;
   }
 
 }

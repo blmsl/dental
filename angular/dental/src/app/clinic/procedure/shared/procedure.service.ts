@@ -2,14 +2,13 @@ import { Observable } from 'rxjs/Rx';
 import { Http } from '@angular/http';
 import { Global } from './../../../global/global';
 import { Injectable } from '@angular/core';
+import { BaseAuthorizedService } from '../../../shared/auth/base-authorized.service';
 
 @Injectable()
-export class ProcedureService {
+export class ProcedureService extends BaseAuthorizedService {
 
   private apiUrl = Global.apiURL()+"procedures";
-
-  constructor(private _http:Http) { }
-
+  
   getAll(){ 
     return this._http.get(this.apiUrl)
       .map(res => res.json());

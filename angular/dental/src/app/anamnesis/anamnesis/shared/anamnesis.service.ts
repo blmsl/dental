@@ -3,10 +3,10 @@ import { Global } from './../../../global/global';
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 
-@Injectable()
-export class AnamnesisService {
+import { BaseAuthorizedService } from '../../../shared/auth/base-authorized.service';
 
-  constructor(private _http:Http) { }
+@Injectable()
+export class AnamnesisService extends  BaseAuthorizedService{
 
   get(pPatientId:number){
     return this._http.get(this.apiURL(pPatientId))

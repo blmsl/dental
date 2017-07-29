@@ -6,12 +6,12 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
 
+import { BaseAuthorizedService } from '../../../shared/auth/base-authorized.service';
+
 @Injectable()
-export class ProcedureCategoryService {
+export class ProcedureCategoryService extends BaseAuthorizedService{
 
   private apiUrl = Global.apiURL()+"procedure_categories";
-
-  constructor(private _http:Http) { }
 
   getAll(){ 
     return this._http.get(this.apiUrl)

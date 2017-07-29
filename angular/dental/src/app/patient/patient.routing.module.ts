@@ -1,4 +1,4 @@
-import { AuthGuardService } from './../shared/auth-guard.service';
+import { AuthGuardService } from './../shared/auth/auth-guard.service';
 import { PatientLayoutComponent } from './patient/patient-layout/patient-layout.component';
 import { AnamnesisComponent } from './../anamnesis/anamnesis/anamnesis.component';
 

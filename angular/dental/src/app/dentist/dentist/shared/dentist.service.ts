@@ -4,12 +4,12 @@ import { Http } from '@angular/http';
 import { Global } from './../../../global/global';
 import { Injectable } from '@angular/core';
 
+import { BaseAuthorizedService } from '../../../shared/auth/base-authorized.service';
+
 @Injectable()
-export class DentistService {
+export class DentistService extends BaseAuthorizedService {
 
   private apiUrl = Global.apiURL()+"dentists";
-
-  constructor(private _http:Http) { }
 
   getAll(){ 
     return this._http.get(this.apiUrl)

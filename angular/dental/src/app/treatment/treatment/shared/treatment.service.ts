@@ -3,11 +3,10 @@ import { Treatment } from './treatment';
 import { Observable } from 'rxjs/Rx';
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
+import { BaseAuthorizedService } from '../../../shared/auth/base-authorized.service';
 
 @Injectable()
-export class TreatmentService {
-
-  constructor(private _http:Http) { }
+export class TreatmentService extends BaseAuthorizedService {
 
   getAllFromPatient(pPatientId:number){ 
     return this._http.get(this.apiURL(pPatientId))

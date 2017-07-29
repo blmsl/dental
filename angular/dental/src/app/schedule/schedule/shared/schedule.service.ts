@@ -4,7 +4,7 @@ import { Http,Headers } from '@angular/http';
 import { Global, AUTH_TOKEN } from './../../../global/global';
 import { Injectable } from '@angular/core';
 
-import { BaseAuthorizedService } from '../../../shared/base-authorized.service';
+import { BaseAuthorizedService } from '../../../shared/auth/base-authorized.service';
 
 
 
@@ -14,7 +14,7 @@ export class ScheduleService extends BaseAuthorizedService {
   private apiUrl = Global.apiURL()+"schedules";
 
   getAll(){ 
-    return this._http.get(this.apiUrl,{'headers':this.headers()})
+    return this._http.get(this.apiUrl)
       .map(res => res.json());
   }
 

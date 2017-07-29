@@ -1,4 +1,4 @@
-import { AuthHttp } from './shared/auth-http';
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';

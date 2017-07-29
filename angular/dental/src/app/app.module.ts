@@ -1,4 +1,5 @@
-import { AuthGuardService } from './shared/auth-guard.service';
+import { HttpClient } from './shared/auth/http-client.service';
+import { AuthGuardService } from './shared/auth/auth-guard.service';
 import { DirectivesModule } from './directives/directives.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -48,7 +49,7 @@ import { UtilsModule } from './utils/utils.module';
     UtilsModule,
     ReactiveFormsModule
   ],
-  providers: [MenuService,AuthGuardService],
+  providers: [MenuService,AuthGuardService,HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

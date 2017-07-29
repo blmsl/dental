@@ -1,4 +1,4 @@
-import { AuthenticationService } from './../authentication/shared/authentication.service';
+import { AuthenticationService } from './../../authentication/shared/authentication.service';
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRoute } from '@angular/router';
 

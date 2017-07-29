@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 
 import { Global } from './../../../global/global';
-import { BaseAuthorizedService } from '../../../shared/base-authorized.service';
+import { BaseAuthorizedService } from '../../../shared/auth/base-authorized.service';
 
 @Injectable()
 export class PlanService extends BaseAuthorizedService{
