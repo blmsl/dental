@@ -30,7 +30,7 @@ export class HttpClient{
     
   put(url: string, body: any, options?: RequestOptionsArgs): Observable<Response>{
     options = this.setAuthorizationToken(options);
-    return this._http.put(url,options);
+    return this._http.put(url,body,options);
   };
     
   delete(url: string, options?: RequestOptionsArgs): Observable<Response>{

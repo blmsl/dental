@@ -25,8 +25,7 @@ export class DentistComponent implements OnInit {
     this._service.delete(pDentist.id)
       .subscribe(
         res => {
-          let lIndex = this.dentists.indexOf(pDentist);
-          this.dentists.splice(lIndex,1);
+          this.dentists.splice(this.dentists.indexOf(pDentist),1);
           this._flashMessagesService.show('Record successfully deleted!', { cssClass: 'alert-success', timeout: 1000 })
         }
       );

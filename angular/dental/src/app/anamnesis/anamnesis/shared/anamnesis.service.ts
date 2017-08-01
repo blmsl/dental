@@ -24,7 +24,7 @@ export class AnamnesisService extends  BaseAuthorizedService{
   }
 
   private apiURL(pPatientId:number):string{
-    return Global.apiURL()+"patients/"+pPatientId+"/anamneses";
+    return Global.apiURL()+'patients/'+pPatientId+'/anamneses';
   } 
 
 }

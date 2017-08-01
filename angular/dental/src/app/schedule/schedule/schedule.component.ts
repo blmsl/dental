@@ -72,16 +72,7 @@ export class ScheduleComponent implements OnInit {
 
       events: []
       ,dayClick: function (date, jsEvent, view) {
-        //alert(date._d);
         me.scheduleForm.createEvent(date._d);
-          // console.log('clicou no dia');
-          //   const modalRef = me.modalService.open(ScheduleFormComponent);  
-          //   modalRef.componentInstance.novo(date._d);
-          //   modalRef.result
-          //     .then(
-          //       result =>  $('#mycal').fullCalendar('addEventSource', [result])
-          //       , (reason) => {}
-          //       )
       }
       ,eventResize:function(event, delta, revertFunc) {
         me._service.get(event.id)
@@ -95,20 +86,6 @@ export class ScheduleComponent implements OnInit {
             lSchedule.estimated_time = (event.end._d - event.start._d)/60000; 
             me._service.update(lSchedule).subscribe(null);         
         });
-          // me.service.get(event.id)
-          //   .subscribe(
-          //     schedule => {
-          //       console.log(schedule);
-          //       // a diferenca   entre as datas é em milisegundos
-          //       // o tempo estimado(estimated_time) é em minutos
-          //       // sendo assim, para transformar os milisegundos em minutos
-          //       // é necessário dividir por 60.000
-          //       schedule.estimated_time = (event.end._d - event.start._d)/60000; 
-          //       me.service.update(schedule)
-          //         .subscribe(null);  
-          //       console.log(schedule);
-          //     }
-          //   );
       }
       ,eventDrop:function(event, delta, revertFunc) {
         me._service.get(event.id)
@@ -120,19 +97,6 @@ export class ScheduleComponent implements OnInit {
       }
       ,eventClick:function(event) {
           me.scheduleForm.editEvent(event.id);
-          // const modalRef = me.modalService.open(ScheduleFormComponent);  
-          // modalRef.componentInstance.alterar(event.id);
-          // modalRef.result
-          //   .then(
-          //     (result) => {
-          //       console.log(result); 
-          //       $('#mycal').fullCalendar('removeEvents',event.id);
-          //       if (result  != 'deletou')
-          //         $('#mycal').fullCalendar('addEventSource', [result]);
-          //     }
-          //     , (reason) => {})
-
-
       }
     }
   }
@@ -142,9 +106,7 @@ export class ScheduleComponent implements OnInit {
   }
 
   ondelete(pSchedule){
-    //this.searchEvents();
     this.myCalendar.fullCalendar('removeEvents',pSchedule.id);
-    //this.myCalendar.fullCalendar(this.calendarOptions);
   }
 
 }

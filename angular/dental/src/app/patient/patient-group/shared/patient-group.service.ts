@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class PatientGroupService {
 
-  private apiUrl = Global.apiURL()+"patient_groups";
+  private apiUrl = Global.apiURL()+'patient_groups';
 
   constructor(private _http:Http) { }
 

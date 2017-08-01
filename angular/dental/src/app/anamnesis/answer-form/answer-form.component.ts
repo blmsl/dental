@@ -24,7 +24,7 @@ export class AnswerFormComponent implements OnInit {
   }
 
   showRadioOptions():boolean{
-    return (this.answer.question.question_type != QuestionType.only_text) 
+    return (this.answer.question.question_type !== QuestionType.only_text) 
   }
 
   showIDontKnowOption():boolean{
@@ -33,8 +33,8 @@ export class AnswerFormComponent implements OnInit {
   }
 
   showAdditionalText(){
-    return  (QuestionType.yes_no_i_dont_know_and_text == this.answer.question.question_type)
-            || (QuestionType.only_text == this.answer.question.question_type);
+    return  (QuestionType.yes_no_i_dont_know_and_text === this.answer.question.question_type)
+            || (QuestionType.only_text === this.answer.question.question_type);
   }
 
 

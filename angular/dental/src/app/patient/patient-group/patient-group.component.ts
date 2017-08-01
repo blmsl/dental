@@ -24,7 +24,7 @@ export class PatientGroupComponent implements OnInit {
   delete(pPatientGroup:PatientGroup){
     this._service.delete(pPatientGroup.id).subscribe(
       res => {
-        var index = this.patientGroups.indexOf(pPatientGroup);    
+        let index = this.patientGroups.indexOf(pPatientGroup);    
         this.patientGroups.splice(index, 1);
         this._flashMessagesService.show('Record successfully deleted!', { cssClass: 'alert-success', timeout: 1000 })
       }
