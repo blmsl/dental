@@ -1,3 +1,5 @@
+import { Contact } from './../../../contact/contact';
+
 export class Dentist{
     
     id:number;
@@ -6,5 +8,10 @@ export class Dentist{
     cro:number;
     gender:string;
     date_of_birth:Date;
+    contact:Contact;
+
+    constructor(){
+        this.contact = new Contact();
+    }
 
 }
