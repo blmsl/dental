@@ -30,7 +30,7 @@ export class DentistFormComponent implements OnInit {
     this.dentistFormGroup = this._formBuilder.group({
       dentist_name:[null,Validators.compose([Validators.required,Validators.minLength(10)])]
       ,cpf:[null,Validators.required]
-      ,cro:[null,Validators.compose([Validators.required])]
+      ,cro:[null,Validators.required]
       ,gender:[null]
       ,date_of_birth:[null]
     });

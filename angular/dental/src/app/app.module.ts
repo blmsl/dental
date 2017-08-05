@@ -1,4 +1,3 @@
-import { HttpClient } from './shared/auth/http-client.service';
 import { AuthGuardService } from './shared/auth/auth-guard.service';
 import { DirectivesModule } from './directives/directives.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -23,12 +22,16 @@ import { ProcedureCategoryService } from './clinic/procedure-category/shared/pro
 import { LayoutComponentsModule } from './layout-components/layout-components.module';
 import { MenuService } from './menu/menu.service';
 import { UtilsModule } from './utils/utils.module';
+import { InterceptorsModule } from './shared/interceptors/interceptors.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    HttpClientModule,
+    InterceptorsModule,
     BrowserModule,
     FormsModule,
     HttpModule,
@@ -42,14 +45,18 @@ import { UtilsModule } from './utils/utils.module';
     AnamnesisModelModule,
     UtilsModule,
     FlashMessagesModule,
-    AuthenticationModule
+    AuthenticationModule,
   ],
   exports: [
     DirectivesModule,
     UtilsModule,
     ReactiveFormsModule
   ],
-  providers: [MenuService,AuthGuardService,HttpClient],
+  providers: [
+    MenuService,
+    AuthGuardService
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

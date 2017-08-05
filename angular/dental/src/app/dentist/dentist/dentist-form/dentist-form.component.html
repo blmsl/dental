@@ -17,6 +17,13 @@
               <label [class.red-text] = "emname.control.isInvalidControl()" for="dentist_name" >name</label>
               <app-error-message #emname [group] = "dentistFormGroup" controlName = "dentist_name" ></app-error-message>
             </div>
+
+            <div class="input-field col s12 m2 l2"  >
+              <input [class.invalid] = "emcro.control.isInvalidControl()"  type="text" id="cro" [(ngModel)]="dentist.cro" formControlName='cro' autofocus autocomplete="off" >
+              <label [class.red-text] = "emcro.control.isInvalidControl()" for="cro" >CRO</label>
+              <app-error-message #emcro [group] = "dentistFormGroup" controlName = "cro" ></app-error-message>
+            </div>
+            
           </div>
         </div>
 

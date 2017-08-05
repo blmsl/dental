@@ -1,41 +1,42 @@
-import { Global } from './../../../global/global';
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
+import { HttpClient } from '@angular/common/http';
 
-import { BaseAuthorizedService } from '../../../shared/auth/base-authorized.service';
+import { Global } from './../../../global/global';
+import { ProcedureCategory} from './procedure-category';
 
 @Injectable()
-export class ProcedureCategoryService extends BaseAuthorizedService{
+export class ProcedureCategoryService{
 
   private apiUrl = Global.apiURL()+"procedure_categories";
+  constructor(protected _http:HttpClient) {}
 
-  getAll(){ 
+  getAll():Observable<ProcedureCategory[]>{ 
     return this._http.get(this.apiUrl)
-      .map(res => res.json());
+      //.map(res => res.json());
   }
 
-  get(id){
+  get(id):Observable<ProcedureCategory>{
     return this._http.get(this.apiUrl + '/' + id)
-      .map(res => res.json());
+      //.map(res => res.json());
   }
 
   create(procedureCategory){
     return this._http.post(this.apiUrl, {'procedure_category': procedureCategory})
-      .map(res => res.json());
+      //.map(res => res.json());
   }
 
   update(procedureCategory){
     return this._http.put(this.apiUrl + '/' + procedureCategory.id, {'procedure_category': procedureCategory})
-      .map(res => res.json());
+      //.map(res => res.json());
   }
 
   delete(id){
     return this._http.delete(this.apiUrl + '/' + id)
-      .map(res => res.json())
+      //.map(res => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
