@@ -24,6 +24,7 @@ import { MenuService } from './menu/menu.service';
 import { UtilsModule } from './utils/utils.module';
 import { InterceptorsModule } from './shared/interceptors/interceptors.module';
 import { HttpClientModule } from '@angular/common/http';
+import { LoadRequestService } from './shared/load-request.service';
 
 @NgModule({
   declarations: [
@@ -54,8 +55,9 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [
     MenuService,
-    AuthGuardService
-    
+    AuthGuardService,
+    LoadRequestService
+
   ],
   bootstrap: [AppComponent]
 })
