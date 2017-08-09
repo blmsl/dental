@@ -27,9 +27,9 @@ export class MenuService {
     lListaMenu.push(new MenuItem("team","Team","",lSubMenuList));
 
     lSubMenuList = new Array<MenuItem>();
-    lSubMenuList.push(new MenuItem("","Procedures","procedures",null));
-    lSubMenuList.push(new MenuItem("","Procedure Categories","procedure-categories",null));
-    lSubMenuList.push(new MenuItem("","Plans","plans",null));
+    lSubMenuList.push(new MenuItem("","Procedures","clinic/procedures",null));
+    lSubMenuList.push(new MenuItem("","Procedure Categories","clinic/procedure-categories",null));
+    lSubMenuList.push(new MenuItem("","Plans","clinic/plans",null));
     lSubMenuList.push(new MenuItem("","Anamnesis Models","anamnesis-models",null));
     lListaMenu.push(new MenuItem("settings","Settings","",lSubMenuList));
 

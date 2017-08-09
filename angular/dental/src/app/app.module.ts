@@ -17,7 +17,7 @@ import { TreatmentModule } from './treatment/treatment.module';
 import { DentistModule } from './dentist/dentist.module';
 
 import { PatientModule } from './patient/patient.module';
-import { ClinicModule } from './clinic/clinic.module';
+
 import { ProcedureCategoryService } from './clinic/procedure-category/shared/procedure-category.service';
 import { LayoutComponentsModule } from './layout-components/layout-components.module';
 import { MenuService } from './menu/menu.service';
@@ -38,7 +38,7 @@ import { LoadRequestService } from './shared/load-request.service';
     HttpModule,
     AppRoutingModule,
     LayoutComponentsModule,
-    ClinicModule,
+    
     PatientModule,
     DentistModule,
     TreatmentModule,
