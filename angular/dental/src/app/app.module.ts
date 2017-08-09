@@ -1,4 +1,4 @@
-import { AuthGuardService } from './shared/auth/auth-guard.service';
+import { AuthGuardService } from './shared/guards/auth-guard.service';
 import { DirectivesModule } from './directives/directives.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -15,7 +15,7 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { AnamnesisModelModule } from './anamnesis-model/anamnesis-model.module';
 import { TreatmentModule } from './treatment/treatment.module';
 import { DentistModule } from './dentist/dentist.module';
-import { ScheduleModule } from './schedule/schedule.module';
+
 import { PatientModule } from './patient/patient.module';
 import { ClinicModule } from './clinic/clinic.module';
 import { ProcedureCategoryService } from './clinic/procedure-category/shared/procedure-category.service';
@@ -41,7 +41,6 @@ import { LoadRequestService } from './shared/load-request.service';
     ClinicModule,
     PatientModule,
     DentistModule,
-    ScheduleModule,
     TreatmentModule,
     AnamnesisModelModule,
     UtilsModule,
