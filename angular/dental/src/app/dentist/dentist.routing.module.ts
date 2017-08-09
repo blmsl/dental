@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 
-import { AuthGuardService } from './../shared/auth/auth-guard.service';
+import { AuthGuardService } from './../shared/guards/auth-guard.service';
 import { DentistFormComponent } from './dentist/dentist-form/dentist-form.component';
 import { DentistComponent } from './dentist/dentist.component';
 

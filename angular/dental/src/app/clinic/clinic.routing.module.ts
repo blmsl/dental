@@ -1,4 +1,4 @@
-import { AuthGuardService } from './../shared/auth/auth-guard.service';
+import { AuthGuardService } from './../shared/guards/auth-guard.service';
 import { PlanFormComponent } from './plan/plan-form/plan-form.component';
 import { PlanComponent } from './plan/plan.component';
 import { NgModule } from '@angular/core';

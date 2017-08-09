@@ -34,10 +34,13 @@ import { PatientLayoutComponent } from './patient/patient-layout/patient-layout.
     ,AnamnesisModule
   ],
   declarations: [
-    PatientGroupComponent
-    , PatientGroupFormComponent
-    , PatientComponent
-    , PatientFormComponent, PatientShowDetailComponent, PatientDashboardComponent, PatientLayoutComponent
+    PatientGroupComponent, 
+    PatientGroupFormComponent, 
+    PatientComponent, 
+    PatientFormComponent, 
+    PatientShowDetailComponent, 
+    PatientDashboardComponent, 
+    PatientLayoutComponent
   ],
   providers :[
     PatientGroupService
