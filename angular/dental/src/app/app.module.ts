@@ -1,5 +1,3 @@
-import { AuthGuardService } from './shared/guards/auth-guard.service';
-import { DirectivesModule } from './directives/directives.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -9,22 +7,28 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
+import { SharedModule } from './shared/shared.module';
+import { PlanService } from './clinic/plan/shared/plan.service';
+import { ProcedureService } from './clinic/procedure/shared/procedure.service';
+import { PatientModule } from './patient/patient.module';
+
+import { DentistService } from './team/dentist/shared/dentist.service';
+import { PatientService } from './patient/patient/shared/patient.service';
+import { PatientGroupService } from './clinic/patient-group/shared/patient-group.service';
+import { AuthGuardService } from './shared/guards/auth-guard.service';
+import { DirectivesModule } from './directives/directives.module';
+
 import { NavbarComponent } from './layout-components/navbar/navbar.component';
 import { SidenavComponent } from './layout-components/sidenav/sidenav.component';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { AnamnesisModelModule } from './anamnesis-model/anamnesis-model.module';
 import { TreatmentModule } from './treatment/treatment.module';
-import { DentistModule } from './dentist/dentist.module';
-
-import { PatientModule } from './patient/patient.module';
-
 import { ProcedureCategoryService } from './clinic/procedure-category/shared/procedure-category.service';
 import { LayoutComponentsModule } from './layout-components/layout-components.module';
 import { MenuService } from './menu/menu.service';
-import { UtilsModule } from './utils/utils.module';
 import { InterceptorsModule } from './shared/interceptors/interceptors.module';
 import { HttpClientModule } from '@angular/common/http';
-import { LoadRequestService } from './shared/load-request.service';
+
 
 @NgModule({
   declarations: [
@@ -37,25 +41,31 @@ import { LoadRequestService } from './shared/load-request.service';
     FormsModule,
     HttpModule,
     AppRoutingModule,
+    SharedModule,
     LayoutComponentsModule,
-    
     PatientModule,
-    DentistModule,
+    
     TreatmentModule,
     AnamnesisModelModule,
-    UtilsModule,
+    
     FlashMessagesModule,
     AuthenticationModule,
   ],
   exports: [
     DirectivesModule,
-    UtilsModule,
     ReactiveFormsModule
   ],
   providers: [
+    
     MenuService,
-    AuthGuardService,
-    LoadRequestService
+    AuthGuardService
+    ,PatientGroupService
+    ,PatientService
+    ,DentistService
+    ,ProcedureCategoryService
+    ,ProcedureService
+    ,PlanService
+    ,DentistService
 
   ],
   bootstrap: [AppComponent]

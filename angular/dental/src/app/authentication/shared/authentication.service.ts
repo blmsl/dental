@@ -1,6 +1,8 @@
-import { Global, AUTH_TOKEN } from './../../global/global';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter } from '@angular/core';
+
+import { Authentication } from './authentication';
+import { Global, AUTH_TOKEN } from './../../global/global';
 
 @Injectable()
 export class AuthenticationService {
@@ -8,12 +10,11 @@ export class AuthenticationService {
   private logged = false;
   onAuthStateChange:EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor(private _http:Http) { }
+  constructor(private _http:HttpClient) { }
 
   login(pUserLogin){
     return this._http.post(Global.apiURL()+"authenticate",{'email':pUserLogin.email,'password':pUserLogin.password})
-            .map(res => res.json())
-            .do((res) => {
+            .do((res:any) => {
               localStorage.setItem(AUTH_TOKEN,res.auth_token);
               this.logged = true;
               this.onAuthStateChange.emit(true);

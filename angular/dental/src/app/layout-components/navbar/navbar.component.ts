@@ -2,7 +2,9 @@ import { Router } from '@angular/router';
 import { Component, OnInit, ChangeDetectorRef  } from '@angular/core';
 
 import { AuthenticationService } from './../../authentication/shared/authentication.service';
-import { LoadRequestService } from './../../shared/load-request.service';
+import { LoadRequestService } from './../../shared/services/load-request.service';
+
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +14,8 @@ import { LoadRequestService } from './../../shared/load-request.service';
 export class NavbarComponent implements OnInit {
 
   private _showLoading:boolean = false;
-
+  private _subsOnLoadRequest:Subscription;
+  
   constructor(
     private _authService:AuthenticationService
     ,private _router:Router
@@ -23,16 +26,15 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._loadRequestService.onLoadRequestStart.subscribe(
+    this._subsOnLoadRequest = this._loadRequestService.onLoadRequest.subscribe(
       event => {
-        this._showLoading = true;
+        this._showLoading = event;
         this._cdRef.detectChanges();
       });
-    this._loadRequestService.onLoadRequestEnd.subscribe(
-      event => {
-        this._showLoading = false;
-        this._cdRef.detectChanges();
-      })
+  }
+
+  ngOnDestroy(){
+    this._subsOnLoadRequest.unsubscribe();
   }
 
   logout(){

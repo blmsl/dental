@@ -1,6 +1,7 @@
+
 import { PlanService } from './plan/shared/plan.service';
 import { RouterModule } from '@angular/router';
-import { UtilsModule } from './../utils/utils.module';
+import { SharedModule } from './../shared/shared.module';
 import { MaterializeModule } from 'angular2-materialize';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
@@ -18,20 +19,17 @@ import { ClinicRountingModule } from './clinic.routing.module';
 import { PlanComponent } from './plan/plan.component';
 import { PlanFormComponent } from './plan/plan-form/plan-form.component';
 
+import { PatientGroupService } from './patient-group/shared/patient-group.service';
+import { PatientGroupComponent } from './patient-group/patient-group.component';
+import { PatientGroupFormComponent } from './patient-group/patient-group-form/patient-group-form.component';
+
 @NgModule({
   imports: [
-    CommonModule
-    ,FormsModule
-    ,ReactiveFormsModule
-    ,DirectivesModule
-    ,MaterializeModule
-    ,UtilsModule
+    SharedModule
     ,ClinicRountingModule
   ],
   providers :[
-    ProcedureCategoryService
-    ,ProcedureService
-    ,PlanService
+    PatientGroupService
   ],
   declarations: [
     ProcedureCategoryComponent
@@ -40,6 +38,8 @@ import { PlanFormComponent } from './plan/plan-form/plan-form.component';
   , ProcedureFormComponent
   , PlanComponent
   , PlanFormComponent
+  , PatientGroupComponent
+  , PatientGroupFormComponent
   
   ]
 })

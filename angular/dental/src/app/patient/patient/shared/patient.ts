@@ -1,6 +1,6 @@
 import { Contact } from './../../../contact/contact';
 import { Address } from './address';
-import { PatientGroup } from './../../patient-group/shared/patient-group';
+
 
 export class Patient{
     
@@ -18,12 +18,12 @@ export class Patient{
     rg:string;
     observation:string;
 
-    patient_group:PatientGroup;
+    patient_group:any;
     address:Address;
     contact:Contact;
 
     constructor(){
-        this.patient_group = new PatientGroup();
+        this.patient_group = {};
         this.address = new Address();
         this.contact = new Contact();
     }

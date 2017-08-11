@@ -11,7 +11,9 @@ export class PatientGroupService {
 
   private apiUrl = Global.apiURL()+'patient_groups';
 
-  constructor(private _http:HttpClient) { }
+  constructor(private _http:HttpClient) {
+    console.log('instanciando patient group service')
+   }
 
   getAll():Observable<Array<PatientGroup>>{ 
     return this._http.get(this.apiUrl)

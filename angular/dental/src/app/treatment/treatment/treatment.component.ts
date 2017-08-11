@@ -21,14 +21,11 @@ export class TreatmentComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    console.log(this._route.parent.params);
     this._route.parent.params
       .subscribe(
         params => {
           let lPatientId = params['id'];
-          console.log(lPatientId);
           if (!lPatientId) return;
-
           this._service.getAllFromPatient(lPatientId)
             .subscribe(data => this.treatments = data);
         }

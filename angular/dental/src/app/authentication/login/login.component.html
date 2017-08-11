@@ -8,6 +8,10 @@
       </div>
     </nav>
 
+    <div *ngIf = "showLoading()" class="progress">
+      <div class="indeterminate"></div>
+    </div>
+
     <div class="col s12 m8 l6 xl4 push-xl4 push-l3 push-m2">
       <div class="card">
         <div class="card-content ">

@@ -1,5 +1,5 @@
 import { AuthenticationRountingModule } from './authentication.routing,module';
-import { UtilsModule } from './../utils/utils.module';
+import { SharedModule } from './../shared/shared.module';
 import { DirectivesModule } from './../directives/directives.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthenticationService } from './shared/authentication.service';
@@ -12,7 +12,7 @@ import { LoginComponent } from './login/login.component';
     CommonModule
     ,ReactiveFormsModule
     ,DirectivesModule
-    ,UtilsModule
+    ,SharedModule
     ,AuthenticationRountingModule
   ],
   declarations: [LoginComponent]

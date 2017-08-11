@@ -61,7 +61,7 @@ export class ProcedureFormComponent implements OnInit {
     
     lServiceResult.subscribe(res => {      
       this._flashMessagesService.show('Procedure Category successfully '+(this.procedure.id?'Updated':'Created')+'!', { cssClass: 'alert-success', timeout: 2000 });
-      this._router.navigate(['/procedures'])
+      this._router.navigate(["../"],{relativeTo: this._route})
     },
     (err) => {
       this._flashMessagesService.show(err.statusText, { cssClass: 'alert-danger', timeout: 2000 })

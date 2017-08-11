@@ -1,7 +1,7 @@
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { DentistService } from './../../../dentist/dentist/shared/dentist.service';
+import { DentistService } from './../../../team/dentist/shared/dentist.service';
 import { PatientService } from './../../../patient/patient/shared/patient.service';
-import { Dentist } from './../../../dentist/dentist/shared/dentist';
+import { Dentist } from './../../../team/dentist/shared/dentist';
 import { Patient } from './../../../patient/patient/shared/patient';
 import { ScheduleService } from './../shared/schedule.service';
 import { Schedule } from './../shared/schedule';
