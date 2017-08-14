@@ -5,6 +5,8 @@ export class LoadRequestService {
 
   onLoadRequest:EventEmitter<Boolean> = new EventEmitter<Boolean>();
   
-  constructor() {}
+  constructor() {
+    console.log('inicializando load request')
+  }
 
 }

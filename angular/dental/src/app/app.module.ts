@@ -26,7 +26,6 @@ import { TreatmentModule } from './treatment/treatment.module';
 import { ProcedureCategoryService } from './clinic/procedure-category/shared/procedure-category.service';
 import { LayoutComponentsModule } from './layout-components/layout-components.module';
 import { MenuService } from './menu/menu.service';
-import { InterceptorsModule } from './shared/interceptors/interceptors.module';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -36,12 +35,12 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     HttpClientModule,
-    InterceptorsModule,
+    
     BrowserModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    SharedModule,
+    SharedModule.forRoot(),
     LayoutComponentsModule,
     PatientModule,
     
@@ -52,8 +51,8 @@ import { HttpClientModule } from '@angular/common/http';
     AuthenticationModule,
   ],
   exports: [
-    DirectivesModule,
-    ReactiveFormsModule
+    
+    
   ],
   providers: [
     
