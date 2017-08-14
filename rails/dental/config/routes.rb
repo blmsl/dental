@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   
+  
   get 'authentication/authenticate'
-
-  resources :questions
   post 'schedules/search', to: 'schedules#index'
+  
+  resources :questions
   resources :schedules
   resources :dentists
   resources :plans
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   resources :patients do
     resource :anamneses	
     resources :treatments
+    resources :budgets
     get 'alerts', to:'alerts#index'
   end  
   

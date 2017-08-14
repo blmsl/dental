@@ -21,6 +21,8 @@ import { PatientFormComponent } from './patient/patient-form/patient-form.compon
 import { PatientShowDetailComponent } from './patient/patient-show-detail/patient-show-detail.component';
 import { PatientDashboardComponent } from './patient/patient-dashboard/patient-dashboard.component';
 import { PatientLayoutComponent } from './patient/patient-layout/patient-layout.component';
+import { BudgetComponent } from './budget/budget.component';
+import { BudgetFormComponent } from './budget/budget-form/budget-form.component';
 
 @NgModule({
   imports: [
@@ -35,7 +37,7 @@ import { PatientLayoutComponent } from './patient/patient-layout/patient-layout.
     PatientFormComponent, 
     PatientShowDetailComponent, 
     PatientDashboardComponent, 
-    PatientLayoutComponent
+    PatientLayoutComponent, BudgetComponent, BudgetFormComponent
   ],
   providers :[
     PatientService,TreatmentService,PatientGroupService
