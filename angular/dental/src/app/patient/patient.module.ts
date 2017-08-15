@@ -1,20 +1,13 @@
-import { PatientGroupService } from './../clinic/patient-group/shared/patient-group.service';
+import { NgModule } from '@angular/core';
 
+import { SharedModule } from './../shared/shared.module';
+
+import { PatientGroupService } from './../clinic/patient-group/shared/patient-group.service';
 import { TreatmentService } from './../treatment/treatment/shared/treatment.service';
 import { TreatmentModule } from './../treatment/treatment.module';
 import { AnamnesisModule } from './../anamnesis/anamnesis.module';
 import { MaterializeModule } from 'angular2-materialize';
 import { PatientRountingModule } from './patient.routing.module';
-
-import { SharedModule } from './../shared/shared.module';
-import { DirectivesModule } from './../directives/directives.module';
-
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-
 import { PatientService } from './patient/shared/patient.service';
 import { PatientComponent } from './patient/patient.component';
 import { PatientFormComponent } from './patient/patient-form/patient-form.component';
@@ -23,6 +16,7 @@ import { PatientDashboardComponent } from './patient/patient-dashboard/patient-d
 import { PatientLayoutComponent } from './patient/patient-layout/patient-layout.component';
 import { BudgetComponent } from './budget/budget.component';
 import { BudgetFormComponent } from './budget/budget-form/budget-form.component';
+import { BudgetService } from './budget/shared/budget.service';
 
 @NgModule({
   imports: [
@@ -40,7 +34,7 @@ import { BudgetFormComponent } from './budget/budget-form/budget-form.component'
     PatientLayoutComponent, BudgetComponent, BudgetFormComponent
   ],
   providers :[
-    PatientService,TreatmentService,PatientGroupService
+    PatientService,TreatmentService,PatientGroupService,BudgetService
   ],
   
 })

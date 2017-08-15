@@ -10,18 +10,15 @@ export class TreatmentService {
   constructor(protected _http:HttpClient) {}
 
   getAllFromPatient(pPatientId:number):Observable<Treatment[]>{ 
-    return this._http.get(this.apiURL(pPatientId))
-      //.map(res => res.json());
+    return this._http.get<Treatment[]>(this.apiURL(pPatientId))
   }
 
   get(pPatientId:number,pTreatmentId:number):Observable<Treatment>{
-    return this._http.get(this.apiURL(pPatientId) + '/' + pTreatmentId)
-      //.map(res => res.json());
+    return this._http.get<Treatment>(this.apiURL(pPatientId) + '/' + pTreatmentId)
   }
 
   create(pPatientId:number,pTreatment:Treatment){
     return this._http.post(this.apiURL(pPatientId), {'treatment': pTreatment})
-      //.map(res => res.json());
   }
 
   update(pPatientId:number,pTreatment:Treatment){

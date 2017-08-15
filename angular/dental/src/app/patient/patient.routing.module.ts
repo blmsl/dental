@@ -1,3 +1,5 @@
+import { BudgetFormComponent } from './budget/budget-form/budget-form.component';
+import { BudgetComponent } from './budget/budget.component';
 import { AuthGuardService } from './../shared/guards/auth-guard.service';
 import { PatientLayoutComponent } from './patient/patient-layout/patient-layout.component';
 import { AnamnesisComponent } from './../anamnesis/anamnesis/anamnesis.component';
@@ -27,6 +29,10 @@ const PATIENT_ROUTE: Routes = [
                     { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
                     ,{ path: 'dashboard', component: PatientDashboardComponent }
                     ,{ path: 'edit', component: PatientFormComponent }
+
+                    ,{ path: 'budgets', component:BudgetComponent }
+                    ,{ path: 'budgets/new', component:BudgetFormComponent }
+                    ,{ path: 'budgets/:id', component:BudgetFormComponent }
 
                     ,{ path: 'treatments', component:TreatmentComponent }
                     ,{ path: 'treatments/new', component:TreatmentFormComponent }
