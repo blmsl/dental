@@ -23,7 +23,7 @@ export class BudgetService {
   }
 
   update(pPatientId:number,pBudget:Budget){
-    return this._http.put(this.apiURL(pPatientId) + '/' + pBudget.id, {'treatment': pBudget})
+    return this._http.put(this.apiURL(pPatientId) + '/' + pBudget.id, {'budget': pBudget})
   }
 
   delete(pPatientId:number,pBudgetId:number){

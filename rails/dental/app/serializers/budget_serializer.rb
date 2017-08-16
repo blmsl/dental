@@ -1,3 +1,3 @@
 class BudgetSerializer < ActiveModel::Serializer
-  attributes :id, :plan_id, :patient_id, :discount, :total, :observation, :status
+  attributes :id,:description, :patient_id, :discount, :total, :observation, :status
 end

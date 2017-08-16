@@ -1,4 +1,5 @@
 class BudgetsController < ApplicationController
+  before_action :set_patient, only: [:show, :update, :create,:index,:destroy]
   before_action :set_budget, only: [:show, :update, :destroy]
 
   # GET /budgets
@@ -16,9 +17,10 @@ class BudgetsController < ApplicationController
   # POST /budgets
   def create
     @budget = Budget.new(budget_params)
+    @budget.patient = @patient
 
     if @budget.save
-      render json: @budget, status: :created, location: @budget
+      render json: @budget
     else
       render json: @budget.errors, status: :unprocessable_entity
     end
@@ -41,11 +43,15 @@ class BudgetsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_budget
-      @budget = Budget.find(params[:id])
+      @budget = @patient.budgets.find(params[:id])
+    end
+
+    def set_patient
+      @patient = Patient.find(params[:patient_id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def budget_params
-      params.require(:budget).permit(:plan_id, :patient_id, :discount, :total, :observation, :status)
+      params.require(:budget).permit(:description, :patient_id, :discount, :total, :observation, :status)
     end
 end

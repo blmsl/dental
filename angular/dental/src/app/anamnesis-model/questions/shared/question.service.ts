@@ -11,29 +11,24 @@ export class QuestionService {
   private apiUrl = Global.apiURL()+"questions";
   constructor(protected _http:HttpClient) {}
   
-  getAll():Observable<Array<Question>>{
-    return this._http.get(this.apiUrl)
-      //.map(res => res.json());
+  getAll():Observable<Question[]>{
+    return this._http.get<Question[]>(this.apiUrl)
   }
 
   get(pQuetionId):Observable<Question>{
-    return this._http.get(this.apiUrl+"/"+pQuetionId)
-      //.map(res => res.json())
+    return this._http.get<Question>(this.apiUrl+"/"+pQuetionId)
   }
 
   create(pQuestion:Question){
     return this._http.post(this.apiUrl, {'question': pQuestion})
-      //.map(res => res.json());
   }
 
   update(pQuestion:Question){
     return this._http.put(this.apiUrl + '/' + pQuestion.id, {'question': pQuestion})
-      //.map(res => res.json());
   }
 
   delete(id){
     return this._http.delete(this.apiUrl + '/' + id)
-      //.map(res => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 

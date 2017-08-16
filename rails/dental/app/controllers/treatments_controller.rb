@@ -18,7 +18,6 @@ class TreatmentsController < ApplicationController
   def create
     @treatment = Treatment.new(treatment_params)
     @treatment.patient = @patient
-    print "jhon #{@treatment.patient}"
 
     if @treatment.save
       render json: @treatment

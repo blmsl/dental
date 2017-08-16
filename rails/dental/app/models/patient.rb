@@ -8,5 +8,6 @@ class Patient < ApplicationRecord
 	belongs_to :patient_group, :optional => :true
 	has_one :anamnesis
 	has_many :treatments
+	has_many :budgets
 	enum material_status: [:married, :single]
 end

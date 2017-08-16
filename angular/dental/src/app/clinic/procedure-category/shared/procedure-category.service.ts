@@ -15,28 +15,23 @@ export class ProcedureCategoryService{
   constructor(protected _http:HttpClient) {}
 
   getAll():Observable<ProcedureCategory[]>{ 
-    return this._http.get(this.apiUrl)
-      //.map(res => res.json());
+    return this._http.get<ProcedureCategory[]>(this.apiUrl)
   }
 
   get(id):Observable<ProcedureCategory>{
-    return this._http.get(this.apiUrl + '/' + id)
-      //.map(res => res.json());
+    return this._http.get<ProcedureCategory>(this.apiUrl + '/' + id)
   }
 
   create(procedureCategory){
     return this._http.post(this.apiUrl, {'procedure_category': procedureCategory})
-      //.map(res => res.json());
   }
 
   update(procedureCategory){
     return this._http.put(this.apiUrl + '/' + procedureCategory.id, {'procedure_category': procedureCategory})
-      //.map(res => res.json());
   }
 
   delete(id){
     return this._http.delete(this.apiUrl + '/' + id)
-      //.map(res => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 

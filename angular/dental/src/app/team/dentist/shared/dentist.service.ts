@@ -12,28 +12,23 @@ export class DentistService {
   constructor(protected _http:HttpClient) {}
 
   getAll():Observable<Dentist[]>{ 
-    return this._http.get(this.apiUrl)
-      //.map(res => res.json());
+    return this._http.get<Dentist[]>(this.apiUrl)
   }
 
   get(id):Observable<Dentist>{
-    return this._http.get(this.apiUrl + '/' + id)
-      //.map(res => res.json());
+    return this._http.get<Dentist>(this.apiUrl + '/' + id)
   }
 
   create(pDentist:Dentist){
     return this._http.post(this.apiUrl, {'dentist': pDentist})
-      //.map(res => res.json());
   }
 
   update(pDentist:Dentist){
     return this._http.put(this.apiUrl + '/' + pDentist.id, {'dentist': pDentist})
-      //.map(res => res.json());
   }
 
   delete(id){
     return this._http.delete(this.apiUrl + '/' + id)
-     //.map(res => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 

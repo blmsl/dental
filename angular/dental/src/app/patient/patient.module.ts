@@ -1,3 +1,4 @@
+import { PlanService } from './../clinic/plan/shared/plan.service';
 import { NgModule } from '@angular/core';
 
 import { SharedModule } from './../shared/shared.module';
@@ -17,6 +18,7 @@ import { PatientLayoutComponent } from './patient/patient-layout/patient-layout.
 import { BudgetComponent } from './budget/budget.component';
 import { BudgetFormComponent } from './budget/budget-form/budget-form.component';
 import { BudgetService } from './budget/shared/budget.service';
+import { BudgetItemFormComponent } from './budget/budget-item-form/budget-item-form.component';
 
 @NgModule({
   imports: [
@@ -31,10 +33,10 @@ import { BudgetService } from './budget/shared/budget.service';
     PatientFormComponent, 
     PatientShowDetailComponent, 
     PatientDashboardComponent, 
-    PatientLayoutComponent, BudgetComponent, BudgetFormComponent
+    PatientLayoutComponent, BudgetComponent, BudgetFormComponent, BudgetItemFormComponent
   ],
   providers :[
-    PatientService,TreatmentService,PatientGroupService,BudgetService
+    PatientService,TreatmentService,PatientGroupService,BudgetService,PlanService
   ],
   
 })

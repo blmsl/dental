@@ -1,6 +1,6 @@
-export interface Budget{
+export class Budget{
   id:number;
-  description:text;
+  description:string;
   patient_id:number;
-  plan_id:number;
+  observation:string;
 }
