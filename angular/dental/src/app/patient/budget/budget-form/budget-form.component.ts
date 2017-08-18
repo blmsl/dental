@@ -1,4 +1,5 @@
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { BudgetItem } from './../shared/budget-item';
+import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FlashMessagesService } from 'angular2-flash-messages';
@@ -19,6 +20,7 @@ export class BudgetFormComponent implements OnInit {
   plans:Plan[] = [];
   title:string;
   budgetFormGroup:FormGroup;
+
   constructor(
     private _route:ActivatedRoute
     ,private _service:BudgetService
@@ -33,6 +35,7 @@ export class BudgetFormComponent implements OnInit {
       id:[null]
       ,description:[null]
       ,patient_id:[null]
+      ,budget_items: this._formBuilder.array([])
     
     });
   
@@ -72,14 +75,20 @@ export class BudgetFormComponent implements OnInit {
   }
 
   addItem(){
-  
-    // const control = <FormArray>this.anamnesisModelFormGroup.controls['anamnesis_questions'];
-    // control.push(
-    //   this._formBuilder.group({
-    //     question_active:[null]
-    //   })
-    // ); 
-  
+    this.budget.budget_items.push(new BudgetItem());
+    console.log(this.budget.budget_items)
+    const control = <FormArray>this.budgetFormGroup.controls['budget_items'];
+    control.push(
+      this._formBuilder.group({   
+      })
+    ); 
+  }
+
+  removeItem(pBudgetItem:BudgetItem){
+    let index = this.budget.budget_items.indexOf(pBudgetItem)
+    this.budget.budget_items.splice(index,1)
+    const control = <FormArray>this.budgetFormGroup.controls['budget_items'];
+    control.removeAt(index);
   }
 
 }

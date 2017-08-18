@@ -11,7 +11,7 @@ class BudgetsController < ApplicationController
 
   # GET /budgets/1
   def show
-    render json: @budget
+    render json: @budget.to_json(:include => :budget_items)
   end
 
   # POST /budgets

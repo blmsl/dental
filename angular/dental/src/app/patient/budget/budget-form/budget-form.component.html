@@ -15,6 +15,10 @@
             <label [class.red-text] = "emdescription.control.isInvalidControl()" for="description" >Description</label>            
             <app-error-message #emdescription [group] = "budgetFormGroup" controlName = "description" ></app-error-message>
           </div>
+
+            <a (click) = "addItem()" class="right btn-floating btn-large waves-effect waves-light "> 
+              <i class="material-icons">add</i>
+            </a>
         </div>  
 <!-- 
         <div class="row">
@@ -28,6 +32,25 @@
           </div>
         </div>
          -->
+
+           <div  formArrayName="budget_items" >
+            <table class="table table-striped" cellspacing="0" cellpadding="0">
+              
+              <tbody>
+                <tr *ngFor="let bi of budget.budget_items; let i = index" [formGroupName]="i" >
+                
+
+                 <patient-budget-item-form [budget-item] = "bi" (onRemoveItem) = "removeItem($event)"></patient-budget-item-form>
+                 
+
+                </tr>
+              </tbody>
+            </table>          
+          </div>
+
+
+
+
       </div>
       <div class="card-action">
         <button [disabled]="!budgetFormGroup.valid" class="btn waves-effect waves-light" type="submit" name="action" appConfirmDialog >Save
