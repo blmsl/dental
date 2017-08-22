@@ -1,7 +1,25 @@
+<td>
+  <div class="row">
 
-<td>{{ budgetItem }}</td>
+    <div class="input-field">
+      <select [(ngModel)]="budgetItem.plan_id" materialize = "material_select" [materializeSelectOptions]="plans" [formControl] = "budgetItemformGroup.controls['plan_id']">
+        <option  value = "" disabled selected>Choose a Plan</option>
+        <option *ngFor = "let p of plans" value="{{p.id}}">{{p.description}}</option>
+      </select>
+      <label for="plan_id" data-error="wrong" data-success="right" >Plan</label>  
+    </div>
 
-<td class="actions" >
-  <a  appConfirmDialog (click)="removeItem()"  class="right btn-floating btn-large waves-effect waves-light "><i class="material-icons red">delete</i></a>
+    <div class="input-field">
+      <select [(ngModel)]="budgetItem.procedure_id" materialize = "material_select" [materializeSelectOptions]="procedures" [formControl] = "budgetItemformGroup.controls['procedure_id']">
+        <option  value = "" disabled selected>Choose a Procedure</option>
+        <option *ngFor = "let p of procedures" value="{{p.id}}">{{p.description}}</option>
+      </select>
+      <label for="procedure_id" data-error="wrong" data-success="right" >Procedures</label>  
+    </div>
+
+  </div>
 </td>
 
+<td class="actions" >
+  <a (click)="removeItem()"  class="right btn-floating btn-large waves-effect waves-light "><i class="material-icons red">delete</i></a>
+</td>

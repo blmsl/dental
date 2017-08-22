@@ -12,14 +12,16 @@ export class TokenInterceptor implements HttpInterceptor {
 
   constructor() {
     this._token = localStorage.getItem(AUTH_TOKEN);
-   }
+  }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let me = this;
     if (!me._token){
       me._token = "";    
     }
-    request = request.clone({headers: request.headers.set('Authorization', me._token)});
+    if (this._token){
+      request = request.clone({headers: request.headers.set('Authorization', me._token)});
+    }
     return next.handle(request);
   }
 }
