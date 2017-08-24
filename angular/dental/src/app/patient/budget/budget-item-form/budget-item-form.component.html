@@ -1,8 +1,9 @@
+<ng-container [formGroup] = "budgetItemFormGroup">
 <td>
   <div class="row">
 
     <div class="input-field">
-      <select [(ngModel)]="budgetItem.plan_id" materialize = "material_select" [materializeSelectOptions]="plans" [formControl] = "budgetItemformGroup.controls['plan_id']">
+      <select [(ngModel)]="budgetItem.plan_id" materialize = "material_select" [materializeSelectOptions]="plans" formControlName = "plan_id">
         <option  value = "" disabled selected>Choose a Plan</option>
         <option *ngFor = "let p of plans" value="{{p.id}}">{{p.description}}</option>
       </select>
@@ -10,7 +11,7 @@
     </div>
 
     <div class="input-field">
-      <select [(ngModel)]="budgetItem.procedure_id" materialize = "material_select" [materializeSelectOptions]="procedures" [formControl] = "budgetItemformGroup.controls['procedure_id']">
+      <select [(ngModel)]="budgetItem.procedure_id" materialize = "material_select" [materializeSelectOptions]="procedures" formControlName = "procedure_id">
         <option  value = "" disabled selected>Choose a Procedure</option>
         <option *ngFor = "let p of procedures" value="{{p.id}}">{{p.description}}</option>
       </select>
@@ -23,3 +24,5 @@
 <td class="actions" >
   <a (click)="removeItem()"  class="right btn-floating btn-large waves-effect waves-light "><i class="material-icons red">delete</i></a>
 </td>
+
+</ng-container>

@@ -1,4 +1,4 @@
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormArray, FormBuilder } from '@angular/forms';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Dentist } from './../../../team/dentist/shared/dentist';
@@ -17,8 +17,11 @@ export class BudgetItemFormComponent implements OnInit {
   @Input('budget-item') 
   budgetItem:BudgetItem;
 
-  @Input('budgetItemformGroup')
-  budgetItemformGroup:FormGroup;
+  @Input('budgetItemsFormArray')
+  budgetItemsFormArray:FormArray;
+
+  budgetItemFormGroup:FormGroup;
+  
   
   @Input('plans')       
   plans:Plan[];
@@ -32,9 +35,14 @@ export class BudgetItemFormComponent implements OnInit {
   @Output('onRemoveItem')
   onRemoveItem:EventEmitter<BudgetItem> = new EventEmitter<BudgetItem>();
 
-  constructor() { }
+  constructor(private _formBuilder:FormBuilder) { }
 
   ngOnInit() {
+    this.budgetItemFormGroup = this._formBuilder.group({   
+      plan_id:[null]
+      ,procedure_id:[null]
+    });
+    this.budgetItemsFormArray.push(this.budgetItemFormGroup)
   }
 
   removeItem(){

@@ -19,6 +19,7 @@ import { BudgetComponent } from './budget/budget.component';
 import { BudgetFormComponent } from './budget/budget-form/budget-form.component';
 import { BudgetService } from './budget/shared/budget.service';
 import { BudgetItemFormComponent } from './budget/budget-item-form/budget-item-form.component';
+import { BudgetItemListComponent } from './budget/budget-item-list/budget-item-list.component';
 
 @NgModule({
   imports: [
@@ -33,7 +34,7 @@ import { BudgetItemFormComponent } from './budget/budget-item-form/budget-item-f
     PatientFormComponent, 
     PatientShowDetailComponent, 
     PatientDashboardComponent, 
-    PatientLayoutComponent, BudgetComponent, BudgetFormComponent, BudgetItemFormComponent
+    PatientLayoutComponent, BudgetComponent, BudgetFormComponent, BudgetItemFormComponent, BudgetItemListComponent
   ],
   providers :[
     PatientService,TreatmentService,PatientGroupService,BudgetService,PlanService

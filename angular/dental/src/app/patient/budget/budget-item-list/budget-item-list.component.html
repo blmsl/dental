@@ -1,0 +1,18 @@
+<div  formArray="budgetItemsFormArray" >
+  <table class="table table-striped" cellspacing="0" cellpadding="0">
+    
+    <tbody>
+      <tr  *ngFor="let bi of budget_items; let i = index" 
+        patient-budget-item-form  
+        [budgetItemsFormArray] = "budgetItemsFormArray"
+        [plans] = "plans"
+        [procedures] = "procedures"
+        [budget-item] = "bi"
+        (onRemoveItem) = removeItem($event) >
+      
+      </tr>
+    </tbody>
+  </table>          
+</div>
+
+
