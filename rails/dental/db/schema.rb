@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170825010519) do
+ActiveRecord::Schema.define(version: 20170825140446) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "postal_code"
@@ -141,6 +141,7 @@ ActiveRecord::Schema.define(version: 20170825010519) do
     t.integer  "question_id"
     t.integer  "anamnesis_id"
     t.string   "answer_additional_text"
+    t.string   "secondary_answer_text"
   end
 
   create_table "questions", force: :cascade do |t|

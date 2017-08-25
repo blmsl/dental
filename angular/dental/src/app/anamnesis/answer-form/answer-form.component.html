@@ -16,10 +16,19 @@
   </div>
 </div>
 
+<div *ngIf = "showSecondaryQuestionText()">
+    {{answer.question?.secondary_question_text}}
+  <div class = "row" >
+    <div class="input-field col s12"  >
+      <input  type="text" id="secondary_answer_text_{{index}}" [(ngModel)]="answer.secondary_answer_text"  autocomplete="off" >  
+    </div>
+  </div>
+</div>
+
 <div class = "row" >
   <div *ngIf = "showAdditionalText()">
     <div class="input-field col s12"  >
-      <input  type="text" id="answer_additional_text_{{index}}" [(ngModel)]="answer.answer_additional_text"  autocomplete="off" >  
+      <input placeholder="{{answer.question?.question_additional_text}}" type="text" id="answer_additional_text_{{index}}" [(ngModel)]="answer.answer_additional_text"  autocomplete="off" >  
     </div>
   </div>
 </div>
