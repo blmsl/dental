@@ -1,11 +1,12 @@
-import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
+import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
 import { Budget } from './../shared/budget';
 import { BudgetService } from './../shared/budget.service';
 import { BudgetItem } from './../shared/budget-item';
+import { BudgetItemListComponent } from '../budget-item-list/budget-item-list.component';
 
 @Component({
   selector: 'app-budget-form',
@@ -14,8 +15,10 @@ import { BudgetItem } from './../shared/budget-item';
 })
 export class BudgetFormComponent implements OnInit {
 
+  @ViewChild("list")
+  budgetItemList:BudgetItemListComponent;
+
   budget:Budget = new Budget();
-  
   title:string;
   budgetFormGroup:FormGroup;
 
@@ -31,10 +34,9 @@ export class BudgetFormComponent implements OnInit {
   ngOnInit() {
     this.budgetFormGroup = this._formBuilder.group({
       id:[null]
-      ,description:[null]
+      ,description:[null,Validators.required]
       ,patient_id:[null]
-      ,budget_items: this._formBuilder.array([])
-    
+     
     });
   
     
@@ -73,7 +75,7 @@ export class BudgetFormComponent implements OnInit {
   }
 
   addItem(){
-    this.budget.budget_items.push(new BudgetItem());
+    this.budgetItemList.addItem();
   }
 
 }

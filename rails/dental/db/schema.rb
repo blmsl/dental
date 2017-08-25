@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170816182108) do
+ActiveRecord::Schema.define(version: 20170825010519) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "postal_code"
@@ -146,11 +146,13 @@ ActiveRecord::Schema.define(version: 20170816182108) do
   create_table "questions", force: :cascade do |t|
     t.string   "question_text"
     t.integer  "question_type"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "is_alert_when"
     t.string   "alert_text"
     t.string   "question_additional_text"
+    t.string   "secondary_question_text"
+    t.string   "show_secondary_question_when"
   end
 
   create_table "schedules", force: :cascade do |t|

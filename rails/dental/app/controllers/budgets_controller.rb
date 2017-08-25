@@ -1,10 +1,10 @@
 class BudgetsController < ApplicationController
-  before_action :set_patient, only: [:show, :update, :create,:index,:destroy]
+  before_action :set_patient, only: [:show, :update, :create,:destroy]
   before_action :set_budget, only: [:show, :update, :destroy]
 
   # GET /budgets
   def index
-    @budgets = Budget.all
+    @budgets = Budget.where({ patient_id: params[:patient_id]})
 
     render json: @budgets
   end

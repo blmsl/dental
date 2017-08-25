@@ -3,7 +3,7 @@ class ProceduresController < ApplicationController
 
   # GET /procedures
   def index
-    @procedures = Procedure.all
+    @procedures = Procedure.includes(:category).all
 
     render json: @procedures, include: 'category'
   end

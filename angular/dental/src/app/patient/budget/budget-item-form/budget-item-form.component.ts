@@ -1,4 +1,4 @@
-import { FormGroup, FormArray, FormBuilder } from '@angular/forms';
+import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Dentist } from './../../../team/dentist/shared/dentist';
@@ -39,8 +39,9 @@ export class BudgetItemFormComponent implements OnInit {
 
   ngOnInit() {
     this.budgetItemFormGroup = this._formBuilder.group({   
-      plan_id:[null]
-      ,procedure_id:[null]
+      plan_id:[null,Validators.compose([Validators.min(1)])]
+      ,procedure_id:[null,Validators.required]
+      ,item_value:[null,Validators.required]
     });
     this.budgetItemsFormArray.push(this.budgetItemFormGroup)
   }

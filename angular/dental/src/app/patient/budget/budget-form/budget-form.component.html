@@ -21,7 +21,9 @@
             </a>
         </div> 
         
-        <patient-budget-item-list [parentFormGroup] = "budgetFormGroup"   [budget_items] = "budget.budget_items"></patient-budget-item-list>
+        <patient-budget-item-list #list
+          [parentFormGroup] = "budgetFormGroup"   
+          [budget_items] = "budget.budget_items"></patient-budget-item-list>
            
 
       </div>

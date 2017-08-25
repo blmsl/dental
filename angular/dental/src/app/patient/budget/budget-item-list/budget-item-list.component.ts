@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
+import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 
 import { BudgetItem } from './../shared/budget-item';
 import { Plan } from './../../../clinic/plan/shared/plan';
@@ -36,12 +36,13 @@ export class BudgetItemListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.budgetItemsFormArray = this._formBuilder.array([]);
+    this.budgetItemsFormArray = this._formBuilder.array([],Validators.minLength(1));
+    
     this.parentFormGroup.addControl('budget_items',this.budgetItemsFormArray);
     
     this._planService.getAll().subscribe(data => this.plans = data);
-    this._procedureService.getAll().subscribe(data => this.procedures = data);
-    this._dentistService.getAll().subscribe(data => this.dentists = data);
+    //this._procedureService.getAll().subscribe(data => this.procedures = data);
+    //this._dentistService.getAll().subscribe(data => this.dentists = data);
   }
 
   addItem(){
