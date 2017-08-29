@@ -1,4 +1,4 @@
-import { AuthGuardService } from './../shared/auth/auth-guard.service';
+import { AuthGuardService } from './../shared/guards/auth-guard.service';
 import { PlanFormComponent } from './plan/plan-form/plan-form.component';
 import { PlanComponent } from './plan/plan.component';
 import { NgModule } from '@angular/core';
@@ -10,6 +10,8 @@ import { ProcedureCategoryFormComponent } from './procedure-category/procedure-c
 import { ProcedureComponent } from './procedure/procedure.component';
 import { ProcedureFormComponent } from './procedure/procedure-form/procedure-form.component';
 
+import { PatientGroupFormComponent } from './patient-group/patient-group-form/patient-group-form.component';
+import { PatientGroupComponent } from './patient-group/patient-group.component';
 
 const CLINIC_ROUTE: Routes = [
 
@@ -28,6 +30,10 @@ const CLINIC_ROUTE: Routes = [
             ,{path:'plans',component: PlanComponent}
             ,{path:'plans/new',component: PlanFormComponent}
             ,{path:'plans/:id',component: PlanFormComponent}
+
+            ,{path:'patient-groups',component: PatientGroupComponent}
+            ,{path:'patient-groups/new',component: PatientGroupFormComponent}
+            ,{path:'patient-groups/:id',component: PatientGroupFormComponent}
         ]
     },
 

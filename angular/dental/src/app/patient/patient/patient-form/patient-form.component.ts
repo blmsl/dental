@@ -1,9 +1,9 @@
 import { FlashMessagesService } from 'angular2-flash-messages';
-import { PatientGroupService } from './../../patient-group/shared/patient-group.service';
+import { PatientGroupService } from './../../../clinic/patient-group/shared/patient-group.service';
 import { PatientService } from './../../patient/shared/patient.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { PatientGroup } from './../../patient-group/shared/patient-group';
+import { PatientGroup } from './../../../clinic/patient-group/shared/patient-group';
 import { Patient } from './../shared/patient';
 import { Component, OnInit } from '@angular/core';
 

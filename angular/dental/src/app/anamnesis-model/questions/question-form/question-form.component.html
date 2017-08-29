@@ -32,6 +32,23 @@
 
       <div class="row">
         <div class="input-field col s6">
+          <select  [(ngModel)]= "question.show_secondary_question_when" materialize = "material_select" formControlName = "show_secondary_question_when">
+            <option  value = "" >No Secondary Question</option>
+            <option  value = "Y" >When Answer is 'Yes'</option>
+            <option  value = "N" >When Answer is 'No'</option>
+          </select>
+          <label for="show_secondary_question_when" data-error="wrong" data-success="right" >Show Secondary Question</label>
+        </div>
+
+        <div *ngIf = "showSecondaryQuestionText()" class="input-field col s6"  >
+          <input [class.invalid] = "emsecondary_question_text.control.isInvalidControl()"  type="text" id="secondary_question_text" [(ngModel)]="question.secondary_question_text" formControlName='secondary_question_text' autofocus autocomplete="off" >
+          <label [class.red-text] = "emsecondary_question_text.control.isInvalidControl()" for="secondary_question_text" >Secondary Question</label>
+          <app-error-message #emsecondary_question_text [group] = "questionFormGroup" controlName = "secondary_question_text" ></app-error-message>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s6">
           <select  [(ngModel)]= "question.is_alert_when" materialize = "material_select" formControlName = "is_alert_when">
             <option  value = "" >Has no Alert</option>
             <option  value = "Y" >When Answer is 'Yes'</option>

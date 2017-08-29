@@ -1,0 +1,34 @@
+<ng-container [formGroup] = "budgetItemFormGroup">
+  <td>
+    <div class="row">
+
+      <div class="input-field s4 ">
+        <select [(ngModel)]="budgetItem.plan_id" materialize = "material_select" [materializeSelectOptions]="plans" formControlName = "plan_id">
+          <option  value = "" disabled selected>Choose a Plan</option>
+          <option *ngFor = "let p of plans" value="{{p.id}}">{{p.description}}</option>
+        </select>
+        <label for="plan_id" data-error="wrong" data-success="right" >Plan</label>  
+      </div>
+
+      <div class="input-field s4">
+        <select [(ngModel)]="budgetItem.procedure_id" materialize = "material_select" [materializeSelectOptions]="procedures" formControlName = "procedure_id">
+          <option  value = "" disabled selected>Choose a Procedure</option>
+          <option *ngFor = "let p of procedures" value="{{p.id}}">{{p.description}}</option>
+        </select>
+        <label for="procedure_id" data-error="wrong" data-success="right" >Procedures</label>  
+      </div>
+
+      <div class="input-field s4"  >
+        <input [class.invalid] = "emvalue.control.isInvalidControl()"  type="text" id="item_value" [(ngModel)]="budgetItem.item_value" formControlName='item_value' autocomplete="off" >
+        <label [class.red-text] = "emvalue.control.isInvalidControl()" for="description" >Item Value</label>            
+        <app-error-message #emvalue [group] = "budgetItemFormGroup" controlName = "item_value" ></app-error-message>
+      </div>
+
+    </div>
+  </td>
+
+  <td class="actions" >
+    <a (click)="removeItem()"  class="right btn-floating btn-large waves-effect waves-light "><i class="material-icons red">delete</i></a>
+  </td>
+
+</ng-container>

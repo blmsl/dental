@@ -35,6 +35,8 @@ export class QuestionFormComponent implements OnInit {
       ,question_additional_text:[null]
       ,is_alert_when:[null]
       ,alert_text:[null]
+      ,show_secondary_question_when :[null]
+      ,secondary_question_text :[null]
     });
     
   }
@@ -87,5 +89,10 @@ export class QuestionFormComponent implements OnInit {
   showQuestionAlertText(){
     return  (this.question.is_alert_when != undefined) && (this.question.is_alert_when.length > 0);
   }
+
+  showSecondaryQuestionText(){
+    return  (this.question.show_secondary_question_when != undefined) && (this.question.show_secondary_question_when.length > 0);
+  }
+
 
 }

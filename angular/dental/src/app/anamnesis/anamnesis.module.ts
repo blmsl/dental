@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AnamnesisComponent } from './anamnesis/anamnesis.component';
 import { AnswerFormComponent } from './answer-form/answer-form.component';
+import { AnswerListComponent } from './answer-list/answer-list.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { AnswerFormComponent } from './answer-form/answer-form.component';
     ,FormsModule
     ,DirectivesModule
   ],
-  declarations: [AnamnesisComponent, AnswerFormComponent]
+  declarations: [AnamnesisComponent, AnswerFormComponent, AnswerListComponent]
   ,providers:[AnamnesisService]
   ,exports:[AnamnesisComponent]
 })

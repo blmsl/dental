@@ -8,18 +8,22 @@
       </div>
     </nav>
 
+    <div *ngIf = "showLoading()" class="progress">
+      <div class="indeterminate"></div>
+    </div>
+
     <div class="col s12 m8 l6 xl4 push-xl4 push-l3 push-m2">
       <div class="card">
         <div class="card-content ">
 
 
           <div class="input-field"  >
-            <input  type="text" id="email"  formControlName='email' appAutoFocus  autofocus >
+            <input  type="text" id="email"  formControlName='email'   autofocus >
             <label for="email" >Email</label>    
           </div>
       
           <div class="input-field "  >
-            <input   type="password" id="password" formControlName='password' appAutoFocus autocomplete="off" >
+            <input   type="password" id="password" formControlName='password'  autocomplete="off" >
             <label for="password" >Password</label>
           </div>
       

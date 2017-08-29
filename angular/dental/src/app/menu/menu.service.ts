@@ -14,23 +14,22 @@ export class MenuService {
     
     lListaMenu.push(new MenuItem("event","Schedule","schedule",null));
 
-    lSubMenuList = new Array<MenuItem>();
-    lSubMenuList.push(new MenuItem("","Patients","patients",null));
-    lSubMenuList.push(new MenuItem("","Patient-Groups","patient-groups",null));
-    lListaMenu.push(new MenuItem("person","Patients","",lSubMenuList));
+    lListaMenu.push(new MenuItem("person","Patients","patients",null));
     
     lListaMenu.push(new MenuItem("finance","Finance","",null));
     lListaMenu.push(new MenuItem("","Products","",null));
 
     lSubMenuList = new Array<MenuItem>();
-    lSubMenuList.push(new MenuItem("","Dentists","dentists",null));
+    lSubMenuList.push(new MenuItem("","Dentists","team/dentists",null));
     lListaMenu.push(new MenuItem("team","Team","",lSubMenuList));
 
     lSubMenuList = new Array<MenuItem>();
-    lSubMenuList.push(new MenuItem("","Procedures","procedures",null));
-    lSubMenuList.push(new MenuItem("","Procedure Categories","procedure-categories",null));
-    lSubMenuList.push(new MenuItem("","Plans","plans",null));
+    lSubMenuList.push(new MenuItem("","Procedures","clinic/procedures",null));
+    lSubMenuList.push(new MenuItem("","Procedure Categories","clinic/procedure-categories",null));
+    lSubMenuList.push(new MenuItem("","Plans","clinic/plans",null));
+    lSubMenuList.push(new MenuItem("","Patient-Groups","clinic/patient-groups",null));
     lSubMenuList.push(new MenuItem("","Anamnesis Models","anamnesis-models",null));
+    
     lListaMenu.push(new MenuItem("settings","Settings","",lSubMenuList));
 
     return lListaMenu;

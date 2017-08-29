@@ -15,9 +15,7 @@ export class AnswerFormComponent implements OnInit {
   @Input()
   index:number;
 
-  constructor(
- 
-  ) { }
+  constructor() { }
 
   ngOnInit() {
    
@@ -37,5 +35,8 @@ export class AnswerFormComponent implements OnInit {
             || (QuestionType.only_text === this.answer.question.question_type);
   }
 
+  showSecondaryQuestionText(){
+    return  (this.answer.question.show_secondary_question_when != undefined) && (this.answer.question.show_secondary_question_when === this.answer.answer_text);
+  }
 
 }

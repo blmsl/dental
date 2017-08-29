@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170726225552) do
+ActiveRecord::Schema.define(version: 20170825140446) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "postal_code"
@@ -44,6 +44,28 @@ ActiveRecord::Schema.define(version: 20170726225552) do
     t.integer  "anamnesis_model_id"
     t.integer  "question_id"
     t.boolean  "question_active"
+  end
+
+  create_table "budget_items", force: :cascade do |t|
+    t.integer  "budget_id"
+    t.integer  "treatment_id"
+    t.decimal  "item_value"
+    t.integer  "tooth"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "plan_if"
+    t.integer  "dentist_id"
+  end
+
+  create_table "budgets", force: :cascade do |t|
+    t.integer  "patient_id"
+    t.decimal  "discount"
+    t.decimal  "total"
+    t.text     "observation"
+    t.integer  "status"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.text     "description"
   end
 
   create_table "chairs", force: :cascade do |t|
@@ -119,16 +141,19 @@ ActiveRecord::Schema.define(version: 20170726225552) do
     t.integer  "question_id"
     t.integer  "anamnesis_id"
     t.string   "answer_additional_text"
+    t.string   "secondary_answer_text"
   end
 
   create_table "questions", force: :cascade do |t|
     t.string   "question_text"
     t.integer  "question_type"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "is_alert_when"
     t.string   "alert_text"
     t.string   "question_additional_text"
+    t.string   "secondary_question_text"
+    t.string   "show_secondary_question_when"
   end
 
   create_table "schedules", force: :cascade do |t|

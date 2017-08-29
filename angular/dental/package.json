@@ -30,7 +30,7 @@
     "jquery": "^2.2.4",
     "materialize": "^1.0.0",
     "materialize-clockpicker": "^1.0.1",
-    "materialize-css": "^0.98.2",
+    "materialize-css": "0.100.1",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   },

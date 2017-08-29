@@ -4,7 +4,7 @@ class PatientsController < ApplicationController
 
   # GET /patients
   def index
-    @patients = Patient.joins(:address).all
+    @patients = Patient.includes([:address,:patient_group]).all
 
     render json: @patients,include: ['address','patient_group']
   end

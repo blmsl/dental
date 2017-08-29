@@ -6,6 +6,7 @@ export class Answer{
     id:number;
     answer_text:string;	
     answer_additional_text:string;
+    secondary_answer_text:string;
     question_id:number;
     question:Question;
 

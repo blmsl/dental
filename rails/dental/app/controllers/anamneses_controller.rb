@@ -17,13 +17,8 @@ class AnamnesesController < ApplicationController
     print @anamnesis.to_json
     @anamnesis = Anamnesis.new(anamnesis_params)
     set_anamnesis_id_on_answers
-    print "passei por aqui 1/n"
     @anamnesis.patient_id = @patient.id;
-    print "passei por aqui 2/n"
-   
-    #@patient.anamnesis = @anamnesis
-    print "passei por aqui 3/n"
-
+    
     if @anamnesis.save
       self.show
     else
@@ -60,12 +55,11 @@ class AnamnesesController < ApplicationController
       params[:anamnesis][:answers_attributes] = params[:anamnesis][:answers]
       #params[:anamnesis].delete(:answers);
     
-      params.require(:anamnesis).permit(:observation, :anamnesis_model_id,:patient_id, answers_attributes:[:id,:answer_text,:anamnesis_id,:question_id,:answer_additional_text])
+      params.require(:anamnesis).permit(:observation, :anamnesis_model_id,:patient_id, answers_attributes:[:id,:answer_text,:anamnesis_id,:question_id,:answer_additional_text,:secondary_answer_text])
     end
 
     def set_anamnesis_id_on_answers
       @anamnesis.answers.each do |a|
-        print "jhon \n"
         a.anamnesis = @anamnesis
       end
     end

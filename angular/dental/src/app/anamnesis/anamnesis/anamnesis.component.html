@@ -6,8 +6,8 @@
         <div class="card-content">
         
           <span class="card-title">Anamnesis</span>  
-            <div class = "row" *ngFor="let a of anamnesis.answers; let i = index " >
-              <anamnesis-answer-form [answer]="a" [index] = "i"></anamnesis-answer-form>
+            <div anamnesis-answer-list class = "row" [answers] = "anamnesis.answers" >
+              
             </div>
         </div>
         <div class="card-action">

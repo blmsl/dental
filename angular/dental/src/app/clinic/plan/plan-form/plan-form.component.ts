@@ -46,7 +46,7 @@ export class PlanFormComponent implements OnInit {
 
     lServiceResult.subscribe(res => {
       this._flashMessagesService.show('Procedure Category successfully '+(this.plan.id?'Updated':'Created')+'!', { cssClass: 'alert-success', timeout: 2000 });
-      this._router.navigate(['/plans']);
+      this._router.navigate(['../'], {relativeTo : this._route});
     })
 
   }

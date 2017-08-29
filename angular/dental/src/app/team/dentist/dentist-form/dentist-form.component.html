@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col s12 m12 l12 xl8">
+    <div class="card">
+      <form (ngSubmit)="save()" [formGroup] = "dentistFormGroup" >
+        <div class="card-content">
+          <span class="card-title">{{title}}</span>  
+
+          <div class="row">
+            <div class="input-field col s12 m2 l2"  >
+              <input [class.invalid] = "emcpf.control.isInvalidControl()"  type="text" id="cpf" [(ngModel)]="dentist.cpf" formControlName='cpf' autofocus autocomplete="off" >
+              <label [class.red-text] = "emcpf.control.isInvalidControl()" for="cpf" >CPF</label>
+              <app-error-message #emcpf [group] = "dentistFormGroup" controlName = "cpf" ></app-error-message>
+            </div>
+            
+            <div class="input-field col s12 m6 l6"  >
+              <input [class.invalid] = "emname.control.isInvalidControl()"  type="text" id="dentist_name" [(ngModel)]="dentist.name" formControlName='dentist_name' autofocus autocomplete="off" >
+              <label [class.red-text] = "emname.control.isInvalidControl()" for="dentist_name" >name</label>
+              <app-error-message #emname [group] = "dentistFormGroup" controlName = "dentist_name" ></app-error-message>
+            </div>
+
+            <div class="input-field col s12 m2 l2"  >
+              <input [class.invalid] = "emcro.control.isInvalidControl()"  type="text" id="cro" [(ngModel)]="dentist.cro" formControlName='cro' autofocus autocomplete="off" >
+              <label [class.red-text] = "emcro.control.isInvalidControl()" for="cro" >CRO</label>
+              <app-error-message #emcro [group] = "dentistFormGroup" controlName = "cro" ></app-error-message>
+            </div>
+            
+          </div>
+        </div>
+
+        <div class="card-action">
+          <button [disabled]="!dentistFormGroup.valid" autofocus class="btn waves-effect waves-light" type="submit" name="action" appConfirmDialog >Save
+            <i class="material-icons right">send</i>
+          </button>
+          <a routerLink="/dentists" class = "right" >Back</a>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

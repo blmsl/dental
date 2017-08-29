@@ -24,7 +24,7 @@ export class PatientDashboardComponent implements OnInit {
       if (!id) return;
       this._service.get(id).subscribe(data => {
         this.patient = data;
-        console.log(this.patient);
+      
       } )      
     });
   }

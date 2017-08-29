@@ -1,11 +1,11 @@
 class TreatmentsController < ApplicationController
-  before_action :set_patient, only: [:show, :update, :create,:index,:destroy]
+  before_action :set_patient, only: [:show, :update, :create,:destroy]
   before_action :set_treatment, only: [:show, :update, :destroy]
   
 
   # GET /treatments
   def index
-    @treatments = @patient.treatments
+    @treatments = Treatment.includes(:plan).where({patient_id: params[:patient_id]})
     render json: @treatments, :include => 'plan'
   end
 
@@ -18,7 +18,6 @@ class TreatmentsController < ApplicationController
   def create
     @treatment = Treatment.new(treatment_params)
     @treatment.patient = @patient
-    print "jhon #{@treatment.patient}"
 
     if @treatment.save
       render json: @treatment
